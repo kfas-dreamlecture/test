@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@1.3.9/dist/web/variable/pretendardvariable.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+  body { margin:0; background:#F4F2EC; font-family:"Pretendard Variable",Pretendard,-apple-system,sans-serif; -webkit-font-smoothing:antialiased; color:#1A2138; }
+  a { color:#152452; text-decoration:none; } a:hover { color:#2E7F69; }
+  img { display:block; }
+  @keyframes slowZoom { from { transform:scale(1); } to { transform:scale(1.08); } }
+  @keyframes drift { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+</style>
+</helmet>
+
+<div style="width:100%; background:#F4F2EC">
+
+  <div style="position:relative; z-index:50; background:#FFFFFF; border-bottom:1px solid #E3DFD4">
+    <div class="dl-nav" style="max-width:1200px; margin:0 auto; padding:14px 44px; min-height:84px; display:flex; align-items:center; gap:24px; flex-wrap:wrap">
+      <a class="dl-nav-brand" href="#home" style="flex:none; display:flex; align-items:center; gap:14px; white-space:nowrap">
+        <img class="dl-nav-logo" src="assets-min/img-02.png" alt="드림렉쳐" style="height:54px; width:auto; display:block">
+        <span class="dl-nav-title" style="flex:none; color:#152452; font-size:18px; font-weight:800; letter-spacing:-.02em; white-space:nowrap">드림렉쳐 지역 거점센터 특강</span>
+      </a>
+      <div class="dl-nav-links" style="flex:1; min-width:0; display:flex; align-items:center; gap:22px; flex-wrap:wrap">
+        <a class="dl-nav-a" href="#intro" style="color:#3C4358; font-size:14px; font-weight:700; white-space:nowrap" style-hover="color:#2E8F76">프로그램 소개</a>
+        <a class="dl-nav-a" href="#structure" style="color:#3C4358; font-size:14px; font-weight:700; white-space:nowrap" style-hover="color:#2E8F76">프로그램 개요</a>
+        <a class="dl-nav-a" href="#video" style="color:#3C4358; font-size:14px; font-weight:700; white-space:nowrap" style-hover="color:#2E8F76">스케치 영상</a>
+      <a class="dl-nav-back" href="#home" onClick="{{ goBack }}" style="flex:none; display:flex; align-items:center; gap:7px; color:#152452; font-size:13px; font-weight:700; padding:8px 15px; border-radius:999px; border:1px solid #D7D2C4; white-space:nowrap; cursor:pointer" style-hover="background:#152452; color:#fff; border-color:#152452"><span style="font-size:15px; line-height:1">←</span>뒤로</a>
+      <div class="dl-nav-tabs" style="margin-left:auto; flex:none; display:flex; align-items:center; gap:2px; padding:4px; background:#F4F2EC; border:1px solid #E3DFD4; border-radius:999px">
+        <a class="dl-nav-tab" href="#visit" style="color:#5A6178; font-size:13px; font-weight:700; padding:8px 15px; border-radius:999px; white-space:nowrap" style-hover="background:#EDEAE0; color:#152452">방문특강</a>
+        <a class="dl-nav-tab" href="#invite" style="color:#5A6178; font-size:13px; font-weight:700; padding:8px 15px; border-radius:999px; white-space:nowrap" style-hover="background:#EDEAE0; color:#152452">초청특강</a>
+        <a class="dl-nav-tab" href="#hub" style="background:#152452; color:#fff; font-size:13px; font-weight:800; padding:8px 15px; border-radius:999px; white-space:nowrap">거점특강</a>
+        <a class="dl-nav-tab" href="#connect" style="color:#5A6178; font-size:13px; font-weight:700; padding:8px 15px; border-radius:999px; white-space:nowrap" style-hover="background:#EDEAE0; color:#152452">커넥트</a>
+      </div>
+
+        <!-- 상단 신청 버튼: 아래 글자와 href 주소를 바꾸면 됩니다 -->
+        <a class="dl-nav-apply" href="mailto:dreamlecture@kfas.or.kr?subject=%5B%EB%93%9C%EB%A6%BC%EB%A0%89%EC%B3%90%5D%20%EA%B1%B0%EC%A0%90%ED%8A%B9%EA%B0%95%20%ED%98%91%EB%A0%A5%EA%B8%B0%EA%B4%80%20%EC%8B%A0%EC%B2%AD%20%EB%AC%B8%EC%9D%98" target="_blank" rel="noopener" style="flex:none; background:#152452; color:#fff; font-size:13.5px; font-weight:800; padding:10px 19px; border-radius:999px; white-space:nowrap" style-hover="background:#2E8F76">협력 기관 신청 문의</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="top" style="position:relative; overflow:hidden; background:#0E1936">
+    <img src="assets-min/yeosu/banner-02.jpg" alt="드림렉쳐 거점센터 특강 현장" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.62; animation:slowZoom 26s ease-out both">
+    <div style="position:absolute; inset:0; background:linear-gradient(105deg,rgba(14,25,54,.9) 0%,rgba(14,25,54,.66) 48%,rgba(14,25,54,.24) 100%)"></div>
+    <div class="dl-hero-pad" style="position:relative; max-width:1200px; margin:0 auto; padding:76px 40px 68px; min-height:420px; display:flex; flex-direction:column; justify-content:flex-start; gap:26px">
+      <span style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11.5px; font-weight:500; letter-spacing:.2em; color:rgba(255,255,255,.5)">DREAM LECTURE / 03</span>
+      <h1 class="dl-h1" style="margin:0; font-size:clamp(48px,6.2vw,92px); line-height:1.0; letter-spacing:-.05em; font-weight:800; color:#fff; white-space:nowrap">지역 거점센터 특강</h1>
+      <p class="dl-h1sub" style="margin:0; font-size:clamp(20px,2.2vw,28px); font-weight:700; letter-spacing:-.035em; color:#4FB79A">"꿈의 무대를 넓혀라!"</p>
+      <p style="margin:0; max-width:620px; font-size:16.5px; line-height:1.9; color:rgba(255,255,255,.72); text-wrap:pretty">지역 거점센터를 중심으로 학생들과 한 학기 동안 수회에 걸쳐 지속적으로 교류하는 프로그램입니다. 단발적인 강연을 넘어, 반복된 접촉과 쌓이는 신뢰 속에서 학생들의 사고력과 탐구 의지를 확장합니다.</p>
+      <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap">
+        <span class="dl-chip" style="font-size:13px; font-weight:700; color:#fff; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); border-radius:999px; padding:10px 18px">참가비 없음</span>
+        <span class="dl-chip" style="font-size:13px; font-weight:700; color:#fff; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); border-radius:999px; padding:10px 18px">지역 거점센터 운영</span>
+        <span class="dl-chip" style="font-size:13px; font-weight:700; color:#fff; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); border-radius:999px; padding:10px 18px">한 학기 · 2~3회</span>
+      </div>
+    </div>
+  </div>
+
+
+<div style="background:#152452">
+  <div class="dl-band dl-g4" style="max-width:1200px; margin:0 auto; padding:44px 40px; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:24px">
+    <sc-for list="{{ heroFacts }}" as="f" hint-placeholder-count="4">
+      <div style="display:flex; flex-direction:column; gap:8px; min-width:0; border-left:2px solid rgba(79,183,154,.5); padding-left:20px">
+        <span class="dl-stat" style="font-size:38px; font-weight:800; letter-spacing:-.035em; line-height:1; color:#4FB79A; font-variant-numeric:tabular-nums; white-space:nowrap">{{ f.value }}</span>
+        <span style="font-size:13px; font-weight:600; color:rgba(255,255,255,.62)">{{ f.label }}</span>
+      </div>
+    </sc-for>
+  </div>
+  </div>
+
+  <div class="dl-sec" id="intro" style="max-width:1200px; margin:0 auto; padding:104px 40px 0; display:flex; flex-direction:column; gap:72px">
+    <div class="dl-g2" style="display:grid; grid-template-columns:1.05fr .95fr; gap:64px; align-items:center">
+      <div style="display:flex; flex-direction:column; gap:22px">
+        <span style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11.5px; font-weight:500; letter-spacing:.18em; color:#2E7F69">ABOUT THE PROGRAM</span>
+        <h2 class="dl-h2" style="margin:0; font-size:40px; line-height:1.28; letter-spacing:-.035em; font-weight:800">한 학기 동안<br>지속되는 만남</h2>
+        <p style="margin:0; font-size:16px; line-height:1.85; color:#4A5169; text-wrap:pretty">“드림렉쳐 지역 거점센터 특강”은 지역 거점센터를 중심으로 학생들과 한 학기 동안 수회에 걸쳐 지속적으로 교류하는 프로그램입니다. 석학이 지역을 방문하여 강연을 진행하고, 학생들이 대학 캠퍼스와 연구 현장을 방문하며, 재단 장학생과의 멘토링을 통해 진로를 깊이 탐색합니다.</p>
+        <p style="margin:0; font-size:16px; line-height:1.85; color:#4A5169; text-wrap:pretty">이 프로그램은 단발적인 강연을 넘어 반복된 접촉과 쌓이는 신뢰 속에서 학생들의 사고력, 문제의식, 탐구 의지를 천천히 자극하고 확장합니다. 재단은 지리적, 환경적 장벽을 넘어 더 많은 청소년에게 성장의 기회를 제공하고, 그들이 가진 가능성을 함께 발견하고자 합니다.</p>
+      </div>
+      <div class="dl-fig" style="position:relative; height:520px">
+        <div class="dl-fig-a" style="position:absolute; inset:0 60px 80px 0; border-radius:3px; overflow:hidden; box-shadow:0 30px 60px -30px rgba(21,36,82,.5)">
+          <img src="assets-min/sejong/a01.jpg" alt="세종 거점센터 강연" style="width:100%; height:100%; object-fit:cover">
+        </div>
+        <div class="dl-fig-b" style="position:absolute; right:0; bottom:0; width:280px; height:200px; border-radius:16px; overflow:hidden; border:8px solid #F4F2EC; box-shadow:0 20px 40px -20px rgba(21,36,82,.4)">
+          <img src="assets-min/busan/lab-01.jpg" alt="POSTECH 연구실 견학" style="width:100%; height:100%; object-fit:cover">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dl-sec" id="structure" style="max-width:1200px; margin:0 auto; padding:104px 40px 0; display:flex; flex-direction:column; gap:36px">
+    <div style="display:flex; flex-direction:column; gap:14px">
+      <span style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11.5px; font-weight:500; letter-spacing:.18em; color:#2E7F69">OVERVIEW</span>
+      <h2 class="dl-h2" style="margin:0; font-size:40px; line-height:1.28; letter-spacing:-.035em; font-weight:800">프로그램 개요</h2>
+    </div>
+
+    <div class="dl-g3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px">
+      <div style="background:#fff; border-radius:3px; overflow:hidden; border:1px solid #E4E0D5">
+        <div style="height:170px; overflow:hidden"><img src="assets-min/hub2/lecture-03.jpg" alt="석학 강연" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="dl-card-pad" style="padding:26px 26px 30px; display:flex; flex-direction:column; gap:10px">
+          <span style="font-size:11px; font-weight:800; letter-spacing:.14em; color:#2E7F69">01</span>
+          <h3 style="margin:0; font-size:19px; font-weight:800; letter-spacing:-.025em">석학 강연</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75; color:#5A6178; text-wrap:pretty">석학이 직접 지역을 찾아 강연합니다. 학생들이 미리 보낸 질문을 강연 현장에서 함께 다룹니다.</p>
+          <span style="margin-top:auto; padding-top:18px; border-top:1px solid #EEEBE2; font-size:12.5px; font-weight:700; letter-spacing:-.01em; color:#2E7F69">지역 방문 강연 · 현장 Q&amp;A</span>
+        </div>
+      </div>
+      <div style="background:#fff; border-radius:3px; overflow:hidden; border:1px solid #E4E0D5">
+        <div style="height:170px; overflow:hidden"><img src="assets-min/hub2/lab-orange.jpg" alt="방진복을 입고 클린룸을 견학하는 학생들" style="width:100%; height:100%; object-fit:cover; object-position:center 42%"></div>
+        <div class="dl-card-pad" style="padding:26px 26px 30px; display:flex; flex-direction:column; gap:10px">
+          <span style="font-size:11px; font-weight:800; letter-spacing:.14em; color:#2E7F69">02</span>
+          <h3 style="margin:0; font-size:19px; font-weight:800; letter-spacing:-.025em">현장 방문</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75; color:#5A6178; text-wrap:pretty">대학 캠퍼스를 둘러보고 연구실과 연구 시설을 직접 봅니다. 강연에서 들은 내용을 현장에서 확인합니다.</p>
+          <span style="margin-top:auto; padding-top:18px; border-top:1px solid #EEEBE2; font-size:12.5px; font-weight:700; letter-spacing:-.01em; color:#2E7F69">캠퍼스 · 랩실 투어</span>
+        </div>
+      </div>
+      <div style="background:#fff; border-radius:3px; overflow:hidden; border:1px solid #E4E0D5">
+        <div style="height:170px; overflow:hidden"><img src="assets-min/hub2/mentor-01.jpg" alt="멘토링" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="dl-card-pad" style="padding:26px 26px 30px; display:flex; flex-direction:column; gap:10px">
+          <span style="font-size:11px; font-weight:800; letter-spacing:.14em; color:#2E7F69">03</span>
+          <h3 style="margin:0; font-size:19px; font-weight:800; letter-spacing:-.025em">장학생 멘토링</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75; color:#5A6178; text-wrap:pretty">재단 장학생이 멘토로 참여해 소그룹으로 이야기를 나눕니다. 학과 선택과 공부 방법까지 구체적으로 묻습니다.</p>
+          <span style="margin-top:auto; padding-top:18px; border-top:1px solid #EEEBE2; font-size:12.5px; font-weight:700; letter-spacing:-.01em; color:#2E7F69">소그룹 대화 · 진로 탐색</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="dl-g2" style="display:grid; grid-template-columns:1.05fr .95fr; gap:20px; align-items:stretch">
+      <div class="dl-kv-box" style="background:#fff; border:1px solid #E4E0D5; border-radius:3px; padding:14px 34px 18px">
+        <div class="dl-kv" style="display:grid; grid-template-columns:118px 1fr; gap:24px; align-items:baseline; padding:22px 0;">
+          <span style="font-size:14px; font-weight:800; letter-spacing:-.02em; color:#152452">방식</span>
+          <span style="font-size:14.5px; line-height:1.7; color:#5A6178; text-wrap:pretty">지역 거점센터 중심 오프라인 강연 · 현장 방문</span>
+        </div>
+        <div class="dl-kv" style="display:grid; grid-template-columns:118px 1fr; gap:24px; align-items:baseline; padding:22px 0; border-top:1px solid #EEEBE2">
+          <span style="font-size:14px; font-weight:800; letter-spacing:-.02em; color:#152452">참가 규모</span>
+          <span style="font-size:14.5px; line-height:1.7; color:#5A6178; text-wrap:pretty">지역별 30~70명 (시·도 단위 선발)</span>
+        </div>
+        <div class="dl-kv" style="display:grid; grid-template-columns:118px 1fr; gap:24px; align-items:baseline; padding:22px 0; border-top:1px solid #EEEBE2">
+          <span style="font-size:14px; font-weight:800; letter-spacing:-.02em; color:#152452">운영 기간</span>
+          <span style="font-size:14.5px; line-height:1.7; color:#5A6178; text-wrap:pretty">한 학기, 수회에 걸친 반복 만남</span>
+        </div>
+        <div class="dl-kv" style="display:grid; grid-template-columns:118px 1fr; gap:24px; align-items:baseline; padding:22px 0; border-top:1px solid #EEEBE2">
+          <span style="font-size:14px; font-weight:800; letter-spacing:-.02em; color:#152452">구성</span>
+          <span style="font-size:14.5px; line-height:1.7; color:#5A6178; text-wrap:pretty">사전 질문 접수 → 석학 강연 → 현장 질의응답 → 캠퍼스·연구시설 방문 → 장학생 멘토링</span>
+        </div>
+        <div class="dl-kv" style="display:grid; grid-template-columns:118px 1fr; gap:24px; align-items:baseline; padding:22px 0; border-top:1px solid #EEEBE2">
+          <span style="font-size:14px; font-weight:800; letter-spacing:-.02em; color:#152452">참가비</span>
+          <span style="font-size:14.5px; line-height:1.7; color:#5A6178; text-wrap:pretty">없음</span>
+        </div>
+      </div>
+      <div class="dl-panel" style="background:#152452; border-radius:3px; padding:40px 40px 44px; display:flex; flex-direction:column; gap:22px">
+        <h3 style="margin:0; font-size:22px; font-weight:800; letter-spacing:-.03em; color:#fff">이런 점이 다릅니다</h3>
+        <div style="display:flex; flex-direction:column; gap:16px">
+          <div style="display:grid; grid-template-columns:8px 1fr; gap:14px; align-items:start">
+            <span style="width:6px; height:6px; margin-top:8px; border-radius:999px; background:#4FB79A"></span>
+            <span style="font-size:14.5px; line-height:1.75; color:rgba(255,255,255,.8); text-wrap:pretty">한 번의 강연으로 끝나지 않고, 같은 지역의 같은 학생들을 한 학기 동안 여러 차례 만납니다.</span>
+          </div>
+          <div style="display:grid; grid-template-columns:8px 1fr; gap:14px; align-items:start">
+            <span style="width:6px; height:6px; margin-top:8px; border-radius:999px; background:#4FB79A"></span>
+            <span style="font-size:14.5px; line-height:1.75; color:rgba(255,255,255,.8); text-wrap:pretty">한 학교가 아니라 지역 내 여러 학교 학생들이 함께 모입니다. 교실 밖에서 다른 학교 친구들과 질문을 나누고 교류합니다.</span>
+          </div>
+          <div style="display:grid; grid-template-columns:8px 1fr; gap:14px; align-items:start">
+            <span style="width:6px; height:6px; margin-top:8px; border-radius:999px; background:#4FB79A"></span>
+            <span style="font-size:14.5px; line-height:1.75; color:rgba(255,255,255,.8); text-wrap:pretty">시·도 교육청과 진로교육원이 함께 참여해 지역 단위로 운영합니다.</span>
+          </div>
+          <div style="display:grid; grid-template-columns:8px 1fr; gap:14px; align-items:start">
+            <span style="width:6px; height:6px; margin-top:8px; border-radius:999px; background:#4FB79A"></span>
+            <span style="font-size:14.5px; line-height:1.75; color:rgba(255,255,255,.8); text-wrap:pretty">강연에 그치지 않고 대학 캠퍼스와 연구시설 방문으로 이어집니다.</span>
+          </div>
+          <div style="display:grid; grid-template-columns:8px 1fr; gap:14px; align-items:start">
+            <span style="width:6px; height:6px; margin-top:8px; border-radius:999px; background:#4FB79A"></span>
+            <span style="font-size:14.5px; line-height:1.75; color:rgba(255,255,255,.8); text-wrap:pretty">재단 장학생이 멘토로 참여해 학생의 진로 탐색을 함께합니다.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="dl-mt" style="background:#152452; padding:44px 0; margin-top:96px; overflow:hidden">
+    <div style="display:flex; gap:14px; width:max-content; animation:drift 90s linear infinite" style-hover="animation-play-state:paused">
+      <sc-for list="{{ ticker }}" as="t" hint-placeholder-count="10">
+        <img class="dl-marquee-img" src="{{ t.src }}" alt="거점센터 특강 현장" style="width:300px; height:210px; flex:none; border-radius:2px; object-fit:cover">
+      </sc-for>
+    </div>
+  </div>
+
+  <div class="dl-sec dl-kv" id="video" style="max-width:1200px; margin:0 auto; padding:104px 40px 0; display:grid; grid-template-columns:280px 1fr; gap:52px; align-items:start">
+    <div style="display:flex; flex-direction:column; gap:14px">
+      <span style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11.5px; font-weight:500; letter-spacing:.18em; color:#2E7F69">VIDEO</span>
+      <h2 style="margin:0; font-size:30px; line-height:1.28; letter-spacing:-.035em; font-weight:800">영상으로 보는<br>거점특강</h2>
+      <div style="margin-top:12px; display:flex; flex-direction:column; gap:4px">
+        <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="3">
+          <button type="button" onClick="{{ t.pick }}" style="{{ t.style }}">
+            <span style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11px; font-weight:500; letter-spacing:.14em; opacity:.6">{{ t.year }}</span>
+            <span style="font-size:15px; font-weight:800; letter-spacing:-.025em">{{ t.region }}</span>
+          </button>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:16px">
+      <div style="position:relative; aspect-ratio:16/9; background:#0E1936; border-radius:6px; overflow:hidden">
+        <sc-if value="{{ playing }}" hint-placeholder-val="{{ false }}">
+          <iframe src="{{ embed }}" title="거점특강 스케치 영상" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" style="position:absolute; inset:0; width:100%; height:100%; border:0"></iframe>
+        </sc-if>
+        <sc-if value="{{ idle }}" hint-placeholder-val="{{ true }}">
+          <button onClick="{{ play }}" style="position:absolute; inset:0; width:100%; height:100%; border:none; padding:0; cursor:pointer; background:transparent; display:flex; align-items:center; justify-content:center">
+            <img src="{{ thumb }}" alt="영상 미리보기" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover">
+            <span style="position:absolute; inset:0; background:linear-gradient(rgba(14,25,54,.15),rgba(14,25,54,.45))"></span>
+            <span style="position:relative; width:62px; height:62px; border-radius:50%; background:#4FB79A; color:#152452; font-size:21px; display:flex; align-items:center; justify-content:center; padding-left:4px; box-shadow:0 14px 34px -10px rgba(0,0,0,.6)">▶</span>
+          </button>
+        </sc-if>
+      </div>
+      <div style="display:flex; justify-content:space-between; align-items:baseline; gap:20px; flex-wrap:wrap">
+        <span style="font-size:14px; font-weight:700; color:#5A6178">{{ caption }}</span>
+        <a href="{{ href }}" target="_blank" rel="noopener" style="font-size:14px; font-weight:700; border-bottom:2px solid #4FB79A; padding-bottom:3px">유튜브에서 보기 →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="dl-sec" id="partners" style="max-width:1200px; margin:0 auto; padding:104px 40px 0; display:flex; flex-direction:column; gap:34px">
+    <div style="display:flex; flex-direction:column; gap:14px">
+      <span style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11.5px; font-weight:500; letter-spacing:.18em; color:#2E7F69">PARTNERS</span>
+      <h2 class="dl-h2" style="margin:0; font-size:40px; line-height:1.28; letter-spacing:-.035em; font-weight:800">협력 기관 이력</h2>
+    </div>
+    <div class="dl-g5" style="display:grid; grid-template-columns:repeat(5,1fr); gap:14px">
+      <a href="https://www.pen.go.kr" target="_blank" rel="noopener" style="background:#fff; border:1px solid #E4E0D5; border-radius:3px; padding:22px 20px; display:flex; flex-direction:column; gap:16px; min-height:150px" style-hover="border-color:#4FB79A">
+        <div style="flex:1; display:flex; align-items:center; justify-content:center">
+          <img src="assets-min/logos/busan.png" alt="부산광역시교육청 로고" style="max-width:100%; max-height:56px; width:auto; height:auto; object-fit:contain">
+        </div>
+        <div style="display:flex; flex-direction:column; gap:6px; padding-top:14px; border-top:1px solid #EEEBE2">
+          <span style="font-size:13px; font-weight:700; letter-spacing:-.02em; line-height:1.45; color:#152452; text-wrap:pretty">부산광역시교육청</span>
+          <span style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11px; font-weight:500; letter-spacing:.08em; color:#2E7F69">2025</span>
+        </div>
+      </a>
+      <a href="https://ysed.jne.go.kr" target="_blank" rel="noopener" style="background:#fff; border:1px solid #E4E0D5; border-radius:3px; padding:22px 20px; display:flex; flex-direction:column; gap:16px; min-height:150px" style-hover="border-color:#4FB79A">
+        <div style="flex:1; display:flex; align-items:center; justify-content:center">
+          <img src="assets-min/logos/yeosu.png" alt="여수교육지원청 로고" style="max-width:100%; max-height:56px; width:auto; height:auto; object-fit:contain">
+        </div>
+        <div style="display:flex; flex-direction:column; gap:6px; padding-top:14px; border-top:1px solid #EEEBE2">
+          <span style="font-size:13px; font-weight:700; letter-spacing:-.02em; line-height:1.45; color:#152452; text-wrap:pretty">여수교육지원청</span>
+          <span style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11px; font-weight:500; letter-spacing:.08em; color:#2E7F69">2025 · 2026</span>
+        </div>
+      </a>
+      <a href="https://gyed.jne.go.kr" target="_blank" rel="noopener" style="background:#fff; border:1px solid #E4E0D5; border-radius:3px; padding:22px 20px; display:flex; flex-direction:column; gap:16px; min-height:150px" style-hover="border-color:#4FB79A">
+        <div style="flex:1; display:flex; align-items:center; justify-content:center">
+          <img src="assets-min/logos/gwangyang.png" alt="광양교육지원청 로고" style="max-width:100%; max-height:56px; width:auto; height:auto; object-fit:contain">
+        </div>
+        <div style="display:flex; flex-direction:column; gap:6px; padding-top:14px; border-top:1px solid #EEEBE2">
+          <span style="font-size:13px; font-weight:700; letter-spacing:-.02em; line-height:1.45; color:#152452; text-wrap:pretty">광양교육지원청</span>
+          <span style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11px; font-weight:500; letter-spacing:.08em; color:#2E7F69">2025 · 2026</span>
+        </div>
+      </a>
+      <a href="https://www.sje.go.kr" target="_blank" rel="noopener" style="background:#fff; border:1px solid #E4E0D5; border-radius:3px; padding:22px 20px; display:flex; flex-direction:column; gap:16px; min-height:150px" style-hover="border-color:#4FB79A">
+        <div style="flex:1; display:flex; align-items:center; justify-content:center">
+          <img src="assets-min/logos/sejong.png" alt="세종특별자치시교육청 진로교육원 로고" style="max-width:100%; max-height:56px; width:auto; height:auto; object-fit:contain">
+        </div>
+        <div style="display:flex; flex-direction:column; gap:6px; padding-top:14px; border-top:1px solid #EEEBE2">
+          <span style="font-size:13px; font-weight:700; letter-spacing:-.02em; line-height:1.45; color:#152452; text-wrap:pretty">세종특별자치시교육청 진로교육원</span>
+          <span style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11px; font-weight:500; letter-spacing:.08em; color:#2E7F69">2026</span>
+        </div>
+      </a>
+      <a href="https://jinju.gne.go.kr" target="_blank" rel="noopener" style="background:#fff; border:1px solid #E4E0D5; border-radius:3px; padding:22px 20px; display:flex; flex-direction:column; gap:16px; min-height:150px" style-hover="border-color:#4FB79A">
+        <div style="flex:1; display:flex; align-items:center; justify-content:center">
+          <img src="assets-min/logos/jinju.png" alt="진주교육지원청 로고" style="max-width:100%; max-height:56px; width:auto; height:auto; object-fit:contain">
+        </div>
+        <div style="display:flex; flex-direction:column; gap:6px; padding-top:14px; border-top:1px solid #EEEBE2">
+          <span style="font-size:13px; font-weight:700; letter-spacing:-.02em; line-height:1.45; color:#152452; text-wrap:pretty">진주교육지원청</span>
+          <span style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11px; font-weight:500; letter-spacing:.08em; color:#2E7F69">2026</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="dl-spacer" style="height:96px"></div>
+
+  <dc-import data-no-reveal="1" name="Chatbot" accent="#4FB79A" hint-size="0px,0px"></dc-import>
+
+  <div class="dl-foot-pad" style="background:#0E1936; color:rgba(255,255,255,.55); padding:52px 0">
+    <div class="dl-padx" style="max-width:1200px; margin:0 auto; padding:0 40px; display:flex; justify-content:space-between; align-items:flex-start; gap:40px; flex-wrap:wrap">
+      <div style="display:flex; flex-direction:column; gap:16px">
+        <a href="https://www.kfas.or.kr/" target="_blank" rel="noopener" style="align-self:flex-start; opacity:.85" style-hover="opacity:1">
+          <img class="dl-foot-logo" src="assets-min/img-05.png" alt="한국고등교육재단 홈페이지" style="width:232px; height:100px; object-fit:contain; object-position:left center; filter:brightness(0) invert(1); display:block">
+        </a>
+        <p style="margin:0; font-size:13.5px; line-height:1.9">서울특별시 강남구 테헤란로 211 (우 06141)<br>전화 02-6310-7876 · <a href="mailto:dreamlecture@kfas.or.kr" style="color:rgba(255,255,255,.75)">dreamlecture@kfas.or.kr</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{}">
+const VIDEOS = [
+  { id: "wAM8neX-OmM", year: "2025", region: "부산광역시" },
+  { id: "MCEZWBLVgC8", year: "2025", region: "전라남도 여수∙광양" },
+  { id: "SvxuFFr5N4Q", year: "2026", region: "세종특별자치시" }
+];
+const STRIP = ["assets-min/hub2/lecture-02.jpg","assets-min/hub2/lab-02.jpg","assets-min/hub2/lab-01.jpg","assets-min/hub2/lab-04.jpg","assets-min/hub2/mentor-02.jpg","assets-min/hub2/closing-01.jpg","assets-min/hub2/closing-02.jpg","assets-min/hub2/grad-01.jpg","assets-min/hub2/group-01.jpg","assets-min/yeosu/group-02.jpg","assets-min/busan/group-03.jpg","assets-min/hub2/mentor-04.jpg"];
+
+class Component extends DCLogic {
+  state = { vi: 0, playing: false };
+  componentDidMount() {
+    setTimeout(() => import("./reveal.js").then((m) => m.initReveal()).catch(() => {}), 120);
+  }
+  renderVals() {
+    const vi = this.state.vi;
+    const cur = VIDEOS[vi];
+    const TAB = "text-align:left; display:flex; flex-direction:column; gap:3px; font-family:inherit; cursor:pointer; padding:13px 16px; border-radius:4px; border:1px solid ";
+    return {
+      goBack: (e) => { e.preventDefault(); if (history.length > 1) history.back(); else location.hash = "#home"; },
+      heroFacts: [
+        { tag: "FIRST", value: "2025년", label: "첫 개최" },
+        { tag: "REGIONS", value: "4개 지역", label: "여수∙광양 · 부산 · 세종 · 진주" },
+        { tag: "SCHOOLS", value: "79개교", label: "참여 학교" },
+        { tag: "STUDENTS", value: "218명", label: "참여 학생 수" }
+      ],
+      tabs: VIDEOS.map((v, n) => ({
+        key: v.id, year: v.year, region: v.region,
+        style: TAB + (n === vi ? "#152452; background:#152452; color:#fff" : "#E4E0D5; background:#fff; color:#5A6178"),
+        pick: () => this.setState({ vi: n, playing: false })
+      })),
+      playing: this.state.playing,
+      idle: !this.state.playing,
+      embed: "https://www.youtube-nocookie.com/embed/" + cur.id + "?autoplay=1",
+      thumb: "https://i.ytimg.com/vi/" + cur.id + "/maxresdefault.jpg",
+      href: "https://www.youtube.com/watch?v=" + cur.id,
+      caption: cur.year + " " + cur.region + " 거점센터 특강 스케치",
+      play: () => this.setState({ playing: true }),
+      ticker: STRIP.concat(STRIP).map((src, n) => ({ key: n, src }))
+    };
+  }
+}
+</script>
+</body></html>

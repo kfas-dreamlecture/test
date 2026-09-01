@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@1.3.9/dist/web/variable/pretendardvariable.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+  body { margin:0; background:#F4F2EC; font-family:"Pretendard Variable",Pretendard,-apple-system,sans-serif; -webkit-font-smoothing:antialiased; color:#1A2138; }
+  a { color:#152452; text-decoration:none; } a:hover { color:#A62F66; }
+  img { display:block; }
+  button { font-family:inherit; }
+  @keyframes slowZoom { from { transform:scale(1); } to { transform:scale(1.08); } }
+  @keyframes drift { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+  @keyframes driftBack { from { transform:translateX(-50%); } to { transform:translateX(0); } }
+</style>
+</helmet>
+
+<div style="width:100%; background:#F4F2EC">
+
+  <div style="position:relative; z-index:50; background:#FFFFFF; border-bottom:1px solid #E3DFD4">
+    <div class="dl-nav" style="max-width:1200px; margin:0 auto; padding:14px 44px; min-height:84px; display:flex; align-items:center; gap:24px; flex-wrap:wrap">
+      <a class="dl-nav-brand" href="#home" style="flex:none; display:flex; align-items:center; gap:14px; white-space:nowrap">
+        <img class="dl-nav-logo" src="assets-min/img-02.png" alt="드림렉쳐" style="height:54px; width:auto; display:block">
+        <span class="dl-nav-title" style="flex:none; color:#152452; font-size:18px; font-weight:800; letter-spacing:-.02em; white-space:nowrap">드림렉쳐 초청특강</span>
+      </a>
+      <div class="dl-nav-links" style="flex:1; min-width:0; display:flex; align-items:center; gap:22px; flex-wrap:wrap">
+        <a class="dl-nav-a" href="#intro" style="color:#3C4358; font-size:14px; font-weight:700; white-space:nowrap" style-hover="color:#C93F7C">프로그램 소개</a>
+        <a class="dl-nav-a" href="#overview" style="color:#3C4358; font-size:14px; font-weight:700; white-space:nowrap" style-hover="color:#C93F7C">프로그램 개요</a>
+        <a class="dl-nav-a" href="#history" style="color:#3C4358; font-size:14px; font-weight:700; white-space:nowrap" style-hover="color:#C93F7C">개최 현황</a>
+      <a class="dl-nav-back" href="#home" onClick="{{ goBack }}" style="flex:none; display:flex; align-items:center; gap:7px; color:#152452; font-size:13px; font-weight:700; padding:8px 15px; border-radius:999px; border:1px solid #D7D2C4; white-space:nowrap; cursor:pointer" style-hover="background:#152452; color:#fff; border-color:#152452"><span style="font-size:15px; line-height:1">←</span>뒤로</a>
+      <div class="dl-nav-tabs" style="margin-left:auto; flex:none; display:flex; align-items:center; gap:2px; padding:4px; background:#F4F2EC; border:1px solid #E3DFD4; border-radius:999px">
+        <a class="dl-nav-tab" href="#visit" style="color:#5A6178; font-size:13px; font-weight:700; padding:8px 15px; border-radius:999px; white-space:nowrap" style-hover="background:#EDEAE0; color:#152452">방문특강</a>
+        <a class="dl-nav-tab" href="#invite" style="background:#152452; color:#fff; font-size:13px; font-weight:800; padding:8px 15px; border-radius:999px; white-space:nowrap">초청특강</a>
+        <a class="dl-nav-tab" href="#hub" style="color:#5A6178; font-size:13px; font-weight:700; padding:8px 15px; border-radius:999px; white-space:nowrap" style-hover="background:#EDEAE0; color:#152452">거점특강</a>
+        <a class="dl-nav-tab" href="#connect" style="color:#5A6178; font-size:13px; font-weight:700; padding:8px 15px; border-radius:999px; white-space:nowrap" style-hover="background:#EDEAE0; color:#152452">커넥트</a>
+      </div>
+
+        <!-- 상단 신청 버튼: 아래 글자만 바꾸면 됩니다 -->
+        <span class="dl-nav-apply" style="flex:none; background:#F4F2EC; color:#8A8474; font-size:13.5px; font-weight:800; padding:10px 19px; border-radius:999px; border:1px solid #E3DFD4; white-space:nowrap; cursor:default">2026 하반기 신청 예정</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="top" style="position:relative; overflow:hidden; background:#0E1936">
+    <img src="assets-min/inv2/group-03.jpg" alt="드림렉쳐 초청특강 단체 사진" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.45; animation:slowZoom 26s ease-out both">
+    <div style="position:absolute; inset:0; background:linear-gradient(105deg,rgba(14,25,54,.96) 0%,rgba(14,25,54,.8) 45%,rgba(14,25,54,.4) 100%)"></div>
+    <div class="dl-hero-pad" style="position:relative; max-width:1200px; margin:0 auto; padding:76px 40px 68px; min-height:420px; display:flex; flex-direction:column; justify-content:flex-start; gap:26px">
+      <span style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11.5px; font-weight:500; letter-spacing:.2em; color:rgba(255,255,255,.5)">DREAM LECTURE / 02</span>
+      <h1 class="dl-h1" style="margin:0; font-size:clamp(48px,6.2vw,92px); line-height:1.0; letter-spacing:-.05em; font-weight:800; color:#fff; white-space:nowrap">초청특강</h1>
+      <p class="dl-h1sub" style="margin:0; font-size:clamp(20px,2.2vw,28px); font-weight:700; letter-spacing:-.035em; color:#F06AA6">“더 넓은 세상으로!”</p>
+      <p style="margin:0; max-width:600px; font-size:16.5px; line-height:1.9; color:rgba(255,255,255,.72); text-wrap:pretty">전국의 고등학생을 재단으로 초청해 다양한 분야의 전문가들과 직접 만나는 강연 프로그램입니다. 2013년 12월 첫 개최 이후 71회에 걸쳐 이어졌습니다.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:6px">
+        <span class="dl-chip" style="font-size:13px; font-weight:700; color:#fff; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); border-radius:999px; padding:10px 18px">참가비 없음</span>
+        <span class="dl-chip" style="font-size:13px; font-weight:700; color:#fff; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); border-radius:999px; padding:10px 18px">전국 고등학생 대상</span>
+        <span class="dl-chip" style="font-size:13px; font-weight:700; color:#fff; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); border-radius:999px; padding:10px 18px">재단 방문</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:#152452; color:#fff">
+    <div class="dl-band dl-g4" style="max-width:1200px; margin:0 auto; padding:44px 40px; display:grid; grid-template-columns:repeat(4,1fr); gap:24px">
+      <div style="display:flex; flex-direction:column; gap:8px; border-left:2px solid rgba(232,155,82,.5); padding-left:20px">
+        <span class="dl-stat" style="font-size:38px; font-weight:800; letter-spacing:-.035em; line-height:1; color:#F06AA6; font-variant-numeric:tabular-nums; white-space:nowrap">2013년</span>
+        <span style="font-size:13px; font-weight:600; color:rgba(255,255,255,.62)">첫 개최</span>
+      </div>
+      <sc-for list="{{ achievements }}" as="a" hint-placeholder-count="3">
+        <div style="display:flex; flex-direction:column; gap:8px; border-left:2px solid rgba(232,155,82,.5); padding-left:20px">
+          <span class="dl-stat" style="font-size:38px; font-weight:800; letter-spacing:-.035em; line-height:1; color:#F06AA6; font-variant-numeric:tabular-nums; white-space:nowrap">{{ a.value }}</span>
+          <span style="font-size:13px; font-weight:600; color:rgba(255,255,255,.62)">{{ a.label }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <div class="dl-sec dl-g2" id="intro" style="max-width:1200px; margin:0 auto; padding:104px 40px 0; display:grid; grid-template-columns:1.05fr .95fr; gap:64px; align-items:center">
+    <div style="display:flex; flex-direction:column; gap:22px">
+      <span style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11.5px; font-weight:500; letter-spacing:.18em; color:#A62F66">ABOUT THE PROGRAM</span>
+      <h2 class="dl-h2" style="margin:0; font-size:40px; line-height:1.28; letter-spacing:-.035em; font-weight:800">작은 질문이<br>인생의 방향을 바꿉니다</h2>
+      <p style="margin:0; font-size:16px; line-height:1.85; color:#4A5169; text-wrap:pretty">“더 넓은 세상으로!”는 전국의 고등학생을 재단으로 초청하여 다양한 분야의 전문가들과 직접 만날 수 있도록 마련된 강연 프로그램입니다. 학생들은 여러 분야의 전문가와 밀도 있는 만남 속에서 다양한 주제를 탐구하며, 학문이 어떻게 삶과 연결되고 작은 질문이 인생의 방향을 바꿀 수 있는지 체감하게 됩니다.</p>
+    </div>
+    <div class="dl-fig" style="position:relative; height:520px">
+      <div class="dl-fig-a" style="position:absolute; inset:0 60px 80px 0; border-radius:3px; overflow:hidden; box-shadow:0 30px 60px -30px rgba(21,36,82,.5)">
+        <img src="assets-min/inv2/snap-07.jpg" alt="강연 자료를 살펴보는 학생들" style="width:100%; height:100%; object-fit:cover">
+      </div>
+      <div class="dl-fig-b" style="position:absolute; right:0; bottom:0; width:280px; height:200px; border-radius:16px; overflow:hidden; border:8px solid #F4F2EC; box-shadow:0 20px 40px -20px rgba(21,36,82,.4)">
+        <img src="assets-min/inv2/group-04.jpg" alt="초청특강 단체 사진" style="width:100%; height:100%; object-fit:cover">
+      </div>
+    </div>
+  </div>
+
+  <div class="dl-sec" id="overview" style="max-width:1200px; margin:0 auto; padding:104px 40px 0; display:flex; flex-direction:column; gap:36px">
+    <div style="display:flex; flex-direction:column; gap:14px">
+      <span style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11.5px; font-weight:500; letter-spacing:.18em; color:#A62F66">OVERVIEW</span>
+      <h2 class="dl-h2" style="margin:0; font-size:40px; line-height:1.28; letter-spacing:-.035em; font-weight:800">프로그램 개요</h2>
+    </div>
+
+    <div class="dl-g3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px">
+      <div style="background:#fff; border-radius:3px; overflow:hidden; border:1px solid #E4E0D5">
+        <div style="height:170px; overflow:hidden"><img src="assets-min/inv2/group-02.jpg" alt="학교 단위로 참여한 학생 단체 사진" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="dl-card-pad" style="padding:26px 26px 30px; display:flex; flex-direction:column; gap:10px">
+          <h3 style="margin:0; font-size:19px; font-weight:800; letter-spacing:-.025em">전국 고등학생</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75; color:#5A6178; text-wrap:pretty">전국의 고등학생이 대상이며, 학교 단위로 참여합니다. 지금까지 17개 시·도 전역에서 참여했습니다.</p>
+        </div>
+      </div>
+      <div style="background:#fff; border-radius:3px; overflow:hidden; border:1px solid #E4E0D5">
+        <div style="height:170px; overflow:hidden"><img src="assets-min/inv2/snap-01.jpg" alt="강연을 듣는 학생들" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="dl-card-pad" style="padding:26px 26px 30px; display:flex; flex-direction:column; gap:10px">
+          <h3 style="margin:0; font-size:19px; font-weight:800; letter-spacing:-.025em">재단에서 보내는 하루</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75; color:#5A6178; text-wrap:pretty">하루에 세 개 정도의 강연이 열리고, 질의응답과 퀴즈로 이어집니다. 재단 출신 석학과 외부 전문가가 연사로 참여합니다.</p>
+        </div>
+      </div>
+      <div style="background:#fff; border-radius:3px; overflow:hidden; border:1px solid #E4E0D5">
+        <div style="height:170px; overflow:hidden"><img src="assets-min/inv2/snap-08.jpg" alt="강연장에서 자료를 살펴보는 학생들" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="dl-card-pad" style="padding:26px 26px 30px; display:flex; flex-direction:column; gap:10px">
+          <h3 style="margin:0; font-size:19px; font-weight:800; letter-spacing:-.025em">참가비 없음</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75; color:#5A6178; text-wrap:pretty">참가비가 없습니다. 학교에서 재단까지 오는 버스 대절비까지 재단이 지원합니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dl-g2" style="display:grid; grid-template-columns:1fr 1fr; gap:20px">
+      <div class="dl-kv-box" style="background:#fff; border:1px solid #E4E0D5; border-radius:3px; padding:14px 34px 22px">
+        <sc-for list="{{ overview }}" as="o" hint-placeholder-count="5">
+          <div style="display:flex; gap:24px; padding:20px 0; border-bottom:1px solid #EEEBE2">
+            <span class="dl-kv-k" style="flex:none; width:92px; font-size:14px; font-weight:800; color:#152452">{{ o.k }}</span>
+            <span style="font-size:14.5px; line-height:1.65; color:#4A5169">{{ o.v }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div class="dl-panel" style="background:#152452; border-radius:3px; padding:40px 38px; display:flex; flex-direction:column; gap:22px">
+        <h3 style="margin:0; font-size:22px; font-weight:800; letter-spacing:-.03em; color:#fff">이런 점이 다릅니다</h3>
+        <sc-for list="{{ diffs }}" as="d" hint-placeholder-count="4">
+          <div style="display:flex; gap:14px; align-items:flex-start">
+            <span style="flex:none; margin-top:8px; width:6px; height:6px; border-radius:50%; background:#F06AA6"></span>
+            <p style="margin:0; font-size:15px; line-height:1.7; color:rgba(255,255,255,.8); text-wrap:pretty">{{ d.text }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <div class="dl-mt" id="speakers" style="background:#152452; color:#fff; margin-top:104px; padding:88px 0 92px; overflow:hidden; display:flex; flex-direction:column; gap:44px">
+    <div class="dl-padx" style="max-width:1200px; margin:0 auto; padding:0 40px; width:100%; box-sizing:border-box; display:flex; justify-content:space-between; align-items:flex-end; gap:32px; flex-wrap:wrap">
+      <div style="display:flex; flex-direction:column; gap:14px">
+        <span style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11.5px; font-weight:500; letter-spacing:.18em; color:#F06AA6">SPEAKERS</span>
+        <h2 style="margin:0; font-size:40px; line-height:1.2; letter-spacing:-.04em; font-weight:800">강단에 선 사람들</h2>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:12px">
+      <sc-for list="{{ speakerRows }}" as="row" hint-placeholder-count="3">
+        <div style="{{ row.style }}">
+          <sc-for list="{{ row.items }}" as="p" hint-placeholder-count="12">
+            <span style="flex:none; display:flex; align-items:baseline; gap:10px; padding:14px 22px; border:1px solid rgba(255,255,255,.16); border-radius:999px">
+              <span style="font-size:17px; font-weight:700; letter-spacing:-.03em; color:#fff; white-space:nowrap">{{ p.name }}</span>
+              <span style="font-size:12.5px; font-weight:500; color:rgba(255,255,255,.5); white-space:nowrap">{{ p.aff }}</span>
+            </span>
+          </sc-for>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <div class="dl-sec" id="history" style="max-width:1200px; margin:0 auto; padding:104px 40px 0; display:flex; flex-direction:column; gap:36px">
+    <div style="display:flex; flex-direction:column; gap:14px">
+      <span style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11.5px; font-weight:500; letter-spacing:.18em; color:#A62F66">HISTORY</span>
+      <h2 class="dl-h2" style="margin:0; font-size:40px; line-height:1.28; letter-spacing:-.035em; font-weight:800">연도별 강연 주제</h2>
+      <p style="margin:0; font-size:15px; line-height:1.8; color:#7A7466">2013년 첫 개최 이후 71회에 걸쳐 진행된 강연입니다. 연도를 선택해 그해의 회차와 주제를 확인하세요.</p>
+    </div>
+
+    <div style="display:flex; flex-wrap:wrap; gap:8px">
+      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="11">
+        <button onClick="{{ t.onClick }}" style="{{ t.style }}">{{ t.label }}</button>
+      </sc-for>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:16px">
+      <sc-for list="{{ sessions }}" as="s" hint-placeholder-count="5">
+        <div class="dl-kv dl-panel" style="background:#fff; border-radius:3px; padding:34px 38px; border:1px solid #E4E0D5; display:grid; grid-template-columns:168px 1fr; gap:32px">
+          <div style="display:flex; flex-direction:column; gap:6px">
+            <span style="font-size:11.5px; font-weight:800; letter-spacing:.16em; color:#A62F66">{{ s.no }}회</span>
+            <span style="font-size:20px; font-weight:800; letter-spacing:-.03em; color:#152452">{{ s.date }}</span>
+            <span style="font-size:13.5px; font-weight:700; line-height:1.6; color:#7A7466; text-wrap:pretty">{{ s.theme }}</span>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:0">
+            <sc-for list="{{ s.rows }}" as="r" hint-placeholder-count="4">
+              <div class="dl-kv" style="display:grid; grid-template-columns:120px 1fr; gap:20px; align-items:baseline; padding:13px 0; border-top:1px solid #EEEBE2">
+                <span style="font-size:12.5px; font-weight:800; color:#8A8578; letter-spacing:-.01em">{{ r.kind }}</span>
+                <div style="display:flex; flex-direction:column; gap:5px">
+                  <span style="font-size:16.5px; font-weight:700; line-height:1.5; letter-spacing:-.025em; color:#1A2138; text-wrap:pretty">{{ r.topic }}</span>
+                  <span style="font-size:13.5px; line-height:1.6; color:#6B7285">{{ r.speaker }}</span>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+
+  <div class="dl-mt" style="background:#152452; padding:44px 0; margin-top:96px; overflow:hidden">
+    <div style="display:flex; gap:14px; width:max-content; animation:drift 100s linear infinite" style-hover="animation-play-state:paused">
+      <sc-for list="{{ ticker }}" as="t" hint-placeholder-count="12">
+        <img class="dl-marquee-img" src="{{ t.src }}" alt="초청특강 현장" style="width:300px; height:210px; flex:none; border-radius:14px; object-fit:cover">
+      </sc-for>
+    </div>
+  </div>
+
+  <div class="dl-sec" style="max-width:1200px; margin:0 auto; padding:104px 40px 0">
+    <div class="dl-g2 dl-panel" style="background:#fff; border-radius:3px; padding:44px 46px; border:1px solid #E4E0D5; display:grid; grid-template-columns:1fr auto; gap:40px; align-items:center">
+      <div style="display:flex; flex-direction:column; gap:14px">
+        <span style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11.5px; font-weight:500; letter-spacing:.18em; color:#A62F66">REPLAY</span>
+        <h2 style="margin:0; font-size:32px; line-height:1.3; letter-spacing:-.035em; font-weight:800">초청특강 다시 보기</h2>
+        <p style="margin:0; max-width:620px; font-size:15.5px; line-height:1.8; color:#4A5169; text-wrap:pretty">강연과 질의응답 전체를 유튜브 재생목록에서 볼 수 있습니다.</p>
+      </div>
+      <a class="dl-kv-box" href="https://www.youtube.com/playlist?list=PLAGkQTD3IBklqQObmnxhRxmij4nQu4n5S" target="_blank" rel="noopener" style="flex:none; background:#152452; color:#fff; font-size:15.5px; font-weight:800; padding:18px 34px; border-radius:999px; white-space:nowrap" style-hover="background:#F06AA6; color:#152452">초청특강 다시보기 →</a>
+    </div>
+  </div>
+
+  <div class="dl-spacer" style="height:96px"></div>
+
+  <dc-import data-no-reveal="1" name="Chatbot" accent="#F06AA6" hint-size="0px,0px"></dc-import>
+
+  <div class="dl-foot-pad" style="background:#0E1936; color:rgba(255,255,255,.55); padding:52px 0">
+    <div class="dl-padx" style="max-width:1200px; margin:0 auto; padding:0 40px; display:flex; flex-direction:column; gap:16px">
+      <a href="https://www.kfas.or.kr/" target="_blank" rel="noopener" style="align-self:flex-start; opacity:.85" style-hover="opacity:1">
+        <img class="dl-foot-logo" src="assets-min/img-05.png" alt="한국고등교육재단 홈페이지" style="width:232px; height:100px; object-fit:contain; object-position:left center; filter:brightness(0) invert(1); display:block">
+      </a>
+      <p style="margin:0; font-size:13.5px; line-height:1.9">서울특별시 강남구 테헤란로 211 (우 06141)<br>전화 02-6310-7876 · <a href="mailto:dreamlecture@kfas.or.kr" style="color:rgba(255,255,255,.75)">dreamlecture@kfas.or.kr</a></p>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const TOPICS = [
+  { no: "01", title: "인문학" },
+  { no: "02", title: "과학·기술" },
+  { no: "03", title: "국제·사회" },
+  { no: "04", title: "문화·예술" },
+  { no: "05", title: "비즈니스" },
+  { no: "06", title: "진로·성장" }
+];
+
+const STRIP = ["assets-min/inv2/group-03.jpg","assets-min/inv3/group-02.jpg","assets-min/inv2/snap-02.jpg","assets-min/inv3/photo-01.jpg","assets-min/inv2/snap-08.jpg","assets-min/inv3/group-01.jpg","assets-min/inv2/snap-09.jpg","assets-min/inv3/lecture-01.jpg","assets-min/inv2/snap-03.jpg","assets-min/inv2/group-05.jpg","assets-min/inv2/snap-04.jpg","assets-min/inv2/snap-07.jpg","assets-min/inv/lecture-a.jpg","assets-min/inv2/group-01.jpg","assets-min/inv2/detail-02.jpg","assets-min/inv2/snap-10.jpg","assets-min/inv2/group-04.jpg","assets-min/inv2/snap-05.jpg","assets-min/inv/qna.jpg","assets-min/inv2/snap-11.jpg"];
+
+const YEARS = [
+  { y: "2013–2014", s: [
+    { n: "1", d: "12.28(토)", rows: [
+      ["교양", "최인철 서울대 교수", "좋은 삶의 조건"],
+      ["분반/사회과학", "송옥렬 서울대 교수", "21세기 다양한 진로의 모색"],
+      ["분반/공학", "이재욱 서울대 교수", "컴퓨터 기술의 혁신: 과거, 현재, 그리고 미래"]]},
+    { n: "2", d: "1.11(토)", rows: [
+      ["교양", "김용학 연세대 총장", "Academic Life"],
+      ["분반/사회과학", "이재열 서울대 교수", "상상력과 사회과학자가 되는 길"],
+      ["분반/자연과학", "정현식 서강대 교수", "꿈의 신소재 그래핀"]]},
+    { n: "3", d: "11.01(토)", rows: [
+      ["교양", "최인철 서울대 교수", "청소년을 위한 행복 프레임"],
+      ["문화예술", "구범준 세바시 Chief PD", "스마트 시대의 방송 전략"],
+      ["자연과학", "이필진 고등과학원 교수", "우주에 대하여 우리가 아는 것들, 알 수 없는 것들"]]},
+    { n: "4", d: "11.15(토)", rows: [
+      ["교양", "유재준 서울대 교수", "도전, 창의성, 그리고 리더십"],
+      ["문화예술", "김탁환 소설가", "이야기하는 동물, 인간"],
+      ["분반/사회과학", "남재현 고려대 교수", "경제학의 질문"],
+      ["분반/공학", "신창환 서울시립대 교수", "반도체 기술의 과거, 현재, 그리고 미래"]]},
+    { n: "5", d: "12.2(토)", rows: [
+      ["교양", "강진호 서울대 교수", "올바르게 살아야 할 이유가 있는가?"],
+      ["문화예술", "김명곤 전 문화관광부 장관", "21세기 창조적 인재의 조건"],
+      ["분반/사회과학", "이옥연 서울대 교수", "유럽에서 미국과 한국을 보다"],
+      ["분반/자연과학", "김상현 서울대 교수", "사람, 대칭, 기하"]]}
+  ]},
+  { y: "2015", s: [
+    { n: "7", d: "5.30(토)", rows: [
+      ["교양", "황상민 전 연세대 교수", "한국사회에서 인간 심리를 공부하는 의미"],
+      ["문화예술", "박웅현 TBWA 대표", "책은 왜 읽어야 하는가"],
+      ["분반/사회과학", "나은영 서강대 교수", "심리학, 미디어, 소통"],
+      ["분반/공학", "안정호 서울대 교수", "IT기술 동향"]]},
+    { n: "8", d: "7.11(토)", rows: [
+      ["교양", "이재열 서울대 교수", "열린 세계, 열린 상상력"],
+      ["비즈니스", "방문신 SBS 보도국장", "뉴스룸의 하루: 세상 들여다보기 & 관점의 공존"],
+      ["분반/사회과학", "김대일 서울대 교수", "경제학과 우리의 삶"],
+      ["분반/자연과학", "남순건 경희대 교수", "우주 속의 인간, 인간 속의 우주"]]},
+    { n: "9", d: "7.18(토)", rows: [
+      ["교양", "김용학 연세대 교수", "내 인생일기 80페이지"],
+      ["문화예술", "박웅현 TBWA 대표", "책은 왜 읽어야 하는가"],
+      ["분반/사회과학", "나은영 서강대 교수", "심리학, 미디어, 소통"],
+      ["분반/공학", "안정호 서울대 교수", "IT기술 동향"]]},
+    { n: "10", d: "9.12(토)", rows: [
+      ["교양", "현택환 서울대 교수", "나노는 예쁘면서 쓸모도 많아요"],
+      ["문화예술", "김정수 한양대 교수", "한류와 미운 오리새끼"],
+      ["분반/사회과학", "김병관 아주대 교수", "세계화와 우리의 미래"],
+      ["분반/공학", "홍용택 서울대 교수", "영화 속 디스플레이 기술: 학창시절 꿈과 도전"]]},
+    { n: "11", d: "10.31(토)", rows: [
+      ["교양", "이영조 경희대 교수", "꿈은 성공이다!"],
+      ["문화예술", "김일호 오콘 대표", "포기, 그 진정한 용기: 뽀로로 창작 이야기"],
+      ["분반/사회과학", "이종구 김앤장 선임미국변호사", "법과 경제 그리고 우리의 삶"],
+      ["분반/자연과학", "하승열 서울대 교수", "자연에서 배우는 수학"]]},
+    { n: "12", d: "11.14(토)", rows: [
+      ["교양", "최인철 서울대 교수", "너의 눈으로 세상을 보라"],
+      ["문화예술", "이원국 이원국 발레단 단장", "열정, 나는 믿는다"],
+      ["분반/사회과학", "김동주 KAIST 교수", "비교와 비판의 사회과학"],
+      ["분반/공학", "김성국 연세대 교수", "과학, 도구의 진화"]]},
+    { n: "13", d: "12.19(토)", rows: [
+      ["교양", "한순구 연세대 교수", "창의적인 사람은 성공하기 어렵다?"],
+      ["문화예술", "장일범 음악평론가", "자신의 꿈을 찾은 음악가들"],
+      ["분반/사회과학", "김선혁 고려대 교수", "“제도 디자이너”로서의 정치학자와 행정학자"],
+      ["분반/자연과학", "석차옥 서울대 교수", "화학이 컴퓨터를 만날 때"]]}
+  ]},
+  { y: "2016", s: [
+    { n: "14", d: "5.7(토)", rows: [
+      ["교양", "이재열 서울대 교수", "네트워크 사회와 사회 혁신"],
+      ["비즈니스", "이재포 협동조합 소요 이사", "알파고, 미래를 만나다"],
+      ["분반/사회과학", "김범수 연세대 교수", "미래 세상을 지키는 나의 꿈"],
+      ["분반/공학", "이재욱 서울대 교수", "컴퓨터 기술의 혁신 + @"]]},
+    { n: "15", d: "6.11(토)", rows: [
+      ["교양", "한경구 서울대 교수", "문화와 문명"],
+      ["문화예술", "이사도라 킴 피아니스트", "천천히 가도 괜찮아, 길만 제대로 알고 있으면"],
+      ["분반/사회과학", "이옥연 서울대 교수", "미국의 대통령 만들기"],
+      ["분반/자연과학", "이동환 서울대 교수", "분자, 그 복잡한 모양 속에 숨겨진 아름다움"]]},
+    { n: "16", d: "7.16(토)", rows: [
+      ["교양", "이석재 서울대 교수", "질문하는 힘: 철학자는 왜 무엇을 묻는가?"],
+      ["비즈니스", "김정현 사회적기업 우주 대표", "사회를 더 나은 곳으로 만드는 이기적인 방법"],
+      ["분반", "남재현 고려대 교수", "경제학의 질문"],
+      ["분반/공학", "이정용 KAIST 교수", "연구자의 삶: 과학자가 꿈인 학생들에게"]]},
+    { n: "17", d: "7.23(토)", rows: [
+      ["교양", "최진영 서울대 교수", "Brain, Infinite Challenge"],
+      ["문화예술", "주철환 PD/서울문화재단 대표", "PD는 마지막에 웃는다"],
+      ["분반/사회과학", "양일모 서울대 교수", "Active Learning"],
+      ["분반/자연과학", "김상현 서울대 교수", "사람, 대칭, 기하"]]},
+    { n: "18", d: "7.30(토)", rows: [
+      ["교양", "이재열 서울대 교수", "네트워크 사회와 사회 혁신"],
+      ["문화예술", "주철환 PD/서울문화재단 대표", "PD는 마지막에 웃는다"],
+      ["분반/사회과학", "양일모 서울대 교수", "Active Learning"],
+      ["분반/자연과학", "김상현 서울대 교수", "사람, 대칭, 기하"]]},
+    { n: "19", d: "9.3(토)", rows: [
+      ["교양", "염재호 고려대 총장", "미래사회의 변화와 교육의 미래"],
+      ["비즈니스", "서황욱 구글코리아 전무", "미디어 산업 변화를 통해 살펴보는 변화의 본질과 해법"],
+      ["분반/사회과학", "이근욱 서강대 교수", "세계화 시대의 민주주의, 정치, 그리고 개인"],
+      ["분반/공학", "김동선 룩셈부르크대 연구원", "왜 코딩을 해야하는가?"]]},
+    { n: "20", d: "10.22(토)", rows: [
+      ["교양", "유재준 서울대 교수", "도전, 창의성, 그리고 리더십"],
+      ["문화예술", "손정 CF 감독", "좋아하는 일만 하면서 성공하기"],
+      ["분반/사회과학", "권일웅 서울대 교수", "사회현상의 이해를 위한 생각하는 방법"],
+      ["분반/자연과학", "윤건수 포항공대 교수", "에너지 혁명을 열망하는 사회"]]},
+    { n: "21", d: "11.19(토)", rows: [
+      ["교양", "나은영 서강대 교수", "공감소통의 심리와 미디어"],
+      ["비즈니스", "손병옥 푸르덴셜생명 회장", "성공? 될 때까지 하는 것, 그 뿐!"],
+      ["분반/사회과학", "안덕근 서울대 교수", "국제기구의 현실과 꿈"],
+      ["분반/공학", "신종화 KAIST 교수", "공학을 공부해서 무엇을 할 수 있을까?"]]},
+    { n: "22", d: "12.17(토)", rows: [
+      ["교양", "정종호 서울대 교수", "현대 중국의 이해"],
+      ["비즈니스", "백영재 구글코리아 전무", "비즈니스세계로 간 인류학자"],
+      ["분반/사회과학", "왕규호 서강대 교수", "시장경제의 이해"],
+      ["분반/자연과학", "신석민 서울대 교수", "컴퓨터와 화학이 만날 때: 분자세계의 디자이너"]]}
+  ]},
+  { y: "2017", s: [
+    { n: "23", d: "4.1(토)", rows: [
+      ["교양", "김용학 연세대 총장", "알을 깨고 나온 새: 공포와 기회의 이중주"],
+      ["비즈니스", "백희성 건축가", "직업을 버리고 꿈을 찾다"],
+      ["분반/사회과학", "김대일 서울대 교수", "경제학과 우리의 삶"],
+      ["분반/공학", "신창환 서울시립대 교수", "Dream High! Aim High! 반도체 기술의 과거, 현재, 미래"]]},
+    { n: "24", d: "5.13(토)", rows: [
+      ["교양/인문", "최인철 서울대 교수", "너의 눈으로 세상을 보라"],
+      ["교양/과학", "한재권 로봇공학자", "로봇과 미래"],
+      ["분반/사회과학", "김선혁 고려대 교수", "4차 산업혁명과 정치, 행정"],
+      ["분반/자연과학", "남순건 경희대 교수", "과학 발견과 인공지능"]]},
+    { n: "25", d: "6.10(토)", rows: [
+      ["교양/시사", "윤창현 서울시립대 교수", "글로벌 금융위기와 우리의 미래"],
+      ["교양/과학", "정하웅 KAIST 교수", "구글 신은 모든 것을 알고 있다?"],
+      ["분반/사회과학", "하정화 서울대 교수", "인구고령화와 미래사회"],
+      ["분반/공학", "박해우 구글 엔지니어", "과학자, 기술자로 성장하기"]]},
+    { n: "26", d: "7.15(토)", rows: [
+      ["교양", "하영원 서강대 교수", "의사결정의 심리학"],
+      ["비즈니스", "김태원 구글 상무", "창의적인 인재와 교육 혁신: 무엇이 차이를 만드는가?"],
+      ["분반/사회과학", "이근욱 서강대 교수", "세계화와 그 반발, 그리고 미래"],
+      ["분반/자연과학", "김상현 서울대 교수", "수학, 가장 강력하고 무엇보다 아름다운 인류의 창조물"]]},
+    { n: "27", d: "7.22(토)", rows: [
+      ["교양/시사", "윤창현 서울시립대 교수", "글로벌 금융위기와 우리의 미래"],
+      ["교양/과학", "한재권 로봇공학자", "로봇과 미래"],
+      ["분반/사회과학", "최연구 한국과학창의재단 연구위원", "4차 산업혁명시대의 인문학과 문화"],
+      ["분반/공학", "박해우 구글 엔지니어", "과학자, 기술자로 성장하기"]]},
+    { n: "28", d: "9.2(토)", rows: [
+      ["교양", "김재홍 전 방통위 부위원장", "커뮤니케이션과 대통령 리더십"],
+      ["문화예술", "윤미현 MBC PD", "휴먼다큐PD의 질문법"],
+      ["분반/사회과학", "김병관 아주대 교수", "세계화 시대와 한국의 미래: 내가 만들어갈 미래"],
+      ["분반/자연과학", "윤건수 포항공대 교수", "제5차 에너지 변혁"]]},
+    { n: "29", d: "10.28(토)", rows: [
+      ["교양", "이석재 서울대 교수", "질문하는 힘"],
+      ["문화예술", "김정범 영화음악감독, 뮤지션(푸디토리움)", "음악과 마주하게 되는 삶의 순간들"],
+      ["분반/사회과학", "권일웅 서울대 교수", "사회현상의 이해를 위한 연구방법"],
+      ["분반/자연과학", "권영준 연세대 교수", "우주가 전해주는 이야기"]]},
+    { n: "30", d: "11.18(토)", rows: [
+      ["교양", "이재열 서울대 교수", "네트워크 사회와 사회 혁신"],
+      ["문화예술", "김상진 로커스 스튜디오 이사", "애니메이터란 누구인가?"],
+      ["분반/사회과학", "김범수 연세대 교수", "미래 세상을 지키는 나의 꿈"],
+      ["분반/공학", "유경식 KAIST 교수", "전자공학과 우리 사회"]]},
+    { n: "31", d: "12.16(토)", rows: [
+      ["교양", "유재준 서울대 교수", "도전, 창의성, 그리고 리더십"],
+      ["비즈니스", "김태원 구글 상무", "창의적인 인재와 교육 혁신: 무엇이 차이를 만드는가?"],
+      ["분반/사회과학", "이옥연 서울대 교수", "트럼프 시대, 미국과 세계를 진단하다"],
+      ["분반/공학", "신창환 서울시립대 교수", "Dream High! Aim High! 반도체 기술의 과거, 현재, 미래"]]}
+  ]},
+  { y: "2018", s: [
+    { n: "32", d: "4.7(토)", rows: [
+      ["교양", "김영민 서울대 교수", "인생에서 성장이란 무엇인가?"],
+      ["자연과학", "현택환 서울대 교수", "나노는 예쁘면서 쓸모도 많아요"],
+      ["사회과학", "이근욱 서강대 교수", "세계화와 그 반발, 그리고 미래"],
+      ["문화예술", "김정수 한양대 교수", "한류와 미운 오리 새끼"]]},
+    { n: "33", d: "5.12(토)", rows: [
+      ["교양", "정 혁 서울대 교수", "가난한 나라 부자 나라"],
+      ["자연과학", "김상현 서울대 교수", "사람, 대칭, 기하"],
+      ["사회과학", "안덕근 서울대 교수", "국제기구의 현실과 꿈"],
+      ["문화예술", "최인아 크리에이티브 디렉터", "생각하는 힘, 어떻게 기를까?"]]},
+    { n: "34", d: "6.2(토)", rows: [
+      ["교양", "송지연 서울대 교수", "초고령사회 일본의 도전과제"],
+      ["자연과학", "권영준 연세대 교수", "우주가 전해주는 이야기"],
+      ["사회과학", "남재현 고려대 교수", "경제학의 질문"],
+      ["문화예술", "최병철 KBS해설위원", "나를 컨트롤하라!"]]},
+    { n: "35", d: "6.16(토)", rows: [
+      ["교양", "하영원 서강대 교수", "의사결정의 심리학"],
+      ["공학", "홍용택 서울대 교수", "영화 속 디스플레이 기술: 학창시절 꿈과 도전"],
+      ["문화예술", "조윤범 바이올리니스트", "서양 음악사의 하이라이트"],
+      ["사회과학", "이은주 서울대 교수", "인터넷 뉴스 댓글은 우리에게 무엇을 말해주는가?"]]},
+    { n: "36", d: "7.14(토)", rows: [
+      ["교양", "한순구 연세대 교수", "인생경제학"],
+      ["공학", "정진욱 삼성전자 수석연구원", "먼저 가본 길"],
+      ["사회과학", "김선혁 고려대 교수", "4차 산업혁명과 정치학/행정학"],
+      ["문화예술", "금기숙 패션아트 작가", "보이는 것과 보이지 않는 것"]]},
+    { n: "37", d: "9.8(토)", rows: [
+      ["사회과학", "이재열 서울대 교수", "사회과학과 상상력"],
+      ["자연과학", "윤건수 포항공대 교수", "에너지 변혁: 물리학적 관점"],
+      ["교양", "권순호 캐릭터 디자이너", "캐릭터디자인 실무이야기"],
+      ["문화예술", "최연구 한국과학창의재단 연구위원", "4차 산업혁명시대의 문화예술과 창의성"]]},
+    { n: "38", d: "10.20(토)", rows: [
+      ["교양", "남순건 경희대 교수", "AI(인공지능)와 더불어 사는 세상"],
+      ["사회과학", "진미경 한국외대 교수", "불가능한 꿈을 꾸자"],
+      ["자연과학", "이동환 서울대 교수", "분자, 공학, 미학"],
+      ["비즈니스", "김윤 SK AI리서치센터 센터장", "인공지능(AI)의 허상과 실상"]]},
+    { n: "39", d: "11.3(토)", rows: [
+      ["교양", "배경한 신라대 교수", "중국의 시대와 우리의 진로"],
+      ["자연과학", "신석민 서울대 교수", "컴퓨터와 화학이 만날 때: 분자세계의 디자이너"],
+      ["사회과학", "손병권 중앙대 교수", "잔여사회와 공연정치를 넘어서"],
+      ["문화예술", "홍승찬 한국예술종합학교 교수", "작곡가 하이든에게서 배우는 삶의 지혜"]]},
+    { n: "40", d: "11.17(토)", rows: [
+      ["사회과학", "이상수 서강대 교수", "글로벌 시대의 사회과학: 기업에 의한 인권침해와 법을 중심으로"],
+      ["자연과학", "이필진 고등과학원 교수", "현대 과학을 위한 변명"],
+      ["교양", "이옥연 서울대 교수", "영화 속 세계정치"],
+      ["문화예술", "한유정 할리우드 미술총감독", "원하는 것을 얻으려면 미쳐야 한다"]]},
+    { n: "41", d: "12.15(토)", rows: [
+      ["사회과학", "김병관 아주대 교수", "세계화와 우리의 미래"],
+      ["교양", "류정민 고려대 교수", "슈퍼 브레인: 명상 과학의 세계"],
+      ["문화예술", "서희태 지휘자/음악감독", "음악 거장들의 성공스토리"],
+      ["자연과학", "신창환 성균관대 교수", "미래 실리콘 반도체 기술"]]}
+  ]},
+  { y: "2019", s: [
+    { n: "42", d: "6.22(토)", rows: [
+      ["교양", "염재호 고려대 명예교수", "개척하는 지성: 21세기와 뉴노멀 사회"],
+      ["문화예술", "박웅현 TBWA CCO", "감동받는 능력"],
+      ["자연과학", "남순건 경희대 교수 · 박명구 경북대 교수 · 국형태 가천대 교수", "블랙홀과 인간"]]},
+    { n: "43", d: "7.13(토)", rows: [
+      ["교양", "이석재 서울대 교수", "질문하는 힘"],
+      ["공학 I", "김동선 룩셈부르크대 연구원", "왜 코딩을 해야 하는가"],
+      ["문화예술", "조윤범 바이올리니스트", "서양 음악사의 하이라이트"],
+      ["공학 II", "안정호 서울대 교수", "IT기술동향"]]},
+    { n: "44", d: "9.7(토)", rows: [
+      ["교양", "손지애 이화여대 교수", "세계 무대에서 놀기"],
+      ["공학", "정진욱 삼성전자 수석연구원", "알아두면 쓸데 있는 어느 공학자의 삶"],
+      ["사회과학", "김선혁 고려대 교수", "4차 산업혁명과 정치학/행정학"],
+      ["문화예술", "선승혜 대전시립미술관장", "공감미술로 미래를 나누다"]]},
+    { n: "45", d: "10.19(토)", rows: [
+      ["자연과학", "현택환 서울대 석좌교수", "나노는 예쁘면서 쓸모도 많아요"],
+      ["공학", "신창환 성균관대 교수", "반도 채 몰라도 이해할 수 있는 반도체 기술"],
+      ["비즈니스", "김태원 구글 상무", "창의적인 인재와 교육 혁신"],
+      ["교양", "조한혜정 연세대 명예교수", "포스트 휴먼시대, 누구와 함께 ‘연구’하며 살아갈까?"]]},
+    { n: "46", d: "11.16(토)", rows: [
+      ["교양", "이재열 서울대 교수", "네트워크 사회와 사회혁신"],
+      ["문화예술", "남궁인 이대목동병원 전문의, 작가", "응급실의 기록자"],
+      ["자연과학", "권영준 연세대 교수", "우주가 전해주는 이야기"],
+      ["공학", "홍용택 서울대 교수", "영화 속 디스플레이 기술: 학창시절 꿈과 도전"]]},
+    { n: "47", d: "12.21(토)", rows: [
+      ["교양∙과학", "유재준 서울대 교수", "도전, 창의성 그리고 리더십"],
+      ["교양∙인문", "류정민 연세대 조교수", "행복의 습관: 명상과 뇌과학"],
+      ["공학", "한재권 한양대 교수", "로봇과 미래"],
+      ["사회과학", "안덕근 서울대 교수", "국제기구의 현실과 꿈"]]}
+  ]},
+  { y: "2020", s: [
+    { n: "48", d: "7.4(토)", t: "포스트 코로나: 우리가 살아갈 세상", rows: [
+      ["", "이현숙 서울대 교수", "데이터가 알려주는 코로나19 극복법"],
+      ["", "안덕근 서울대 교수", "포스트 코로나 – 글로벌 리더의 자세"],
+      ["", "최인철 서울대 교수", "코로나 바이러스는 불행 바이러스인가?"],
+      ["", "유성호 서울대 교수", "Mortui Vivos Docent – 죽음을 바라보며 삶을 생각한다"]]},
+    { n: "49", d: "9.26(토)", t: "공존과 공생, 지구와 나!", rows: [
+      ["", "정태용 연세대 교수", "지구환경과 나"],
+      ["", "이동학 쓰레기센터 대표", "왜 지구의 절반은 쓰레기로 뒤덮이는가?"],
+      ["", "박록진 서울대 교수", "미세먼지와 기후변화"],
+      ["", "김진만 MBC 시사교양국 팀장", "공존의 꿈 – 다큐로 만난 환경 이야기"]]},
+    { n: "50", d: "10.31(토)", t: "4차산업혁명, 우리가 마주할 DNA", rows: [
+      ["", "송길영 바이브컴퍼니 부사장", "일어날 일은, 일어난다"],
+      ["", "안정호 서울대 교수", "5G and Beyond"],
+      ["", "윤성로 서울대 교수", "인공지능과 딥러닝의 이해"],
+      ["", "유영만 지식생태학자", "인공지능을 능가하는 인간지성"]]},
+    { n: "51", d: "11.14(토)", t: "행복도 배울 수 있나요?", rows: [
+      ["", "이석재 서울대 교수", "철학자가 생각하는 여러 가지 행복"],
+      ["", "이지선 한동대 교수", "삶은 선물입니다"],
+      ["", "이은주 서울대 교수", "소통과 공감?"],
+      ["", "김종기 푸른나무재단 이사장", "아버지의 이름으로"]]},
+    { n: "52", d: "12.19(토)", t: "내 꿈을 디자인하는 법", rows: [
+      ["", "염재호 고려대 명예교수", "개척하는 지성: 21세기 미래와 뉴노멀 사회"],
+      ["", "이수정 경기대 교수", "범죄심리학자가 꿈은 아니었는데..."],
+      ["", "박남기 광주교대 교수", "포스트 코로나 시대 교육 새 패러다임"],
+      ["", "박주용 서울대 교수", "공부 왜, 어떻게 해야하는가?"]]}
+  ]},
+  { y: "2021", s: [
+    { n: "53", d: "4.10(토)", t: "기억, 미래로 향하는 통로", rows: [
+      ["", "장동선 뇌과학박사", "어떠한 시간이 뇌 안에 기억으로 남는가"],
+      ["", "신혜란 서울대 교수", "기억이 만들어낸 공간, 공간을 통해 살아있는 기억"],
+      ["", "김찬용 전시해설가", "현대미술이 기억을 표현하는 방법"],
+      ["", "구범진 서울대 교수", "호란의 기억: 삼전도비 이야기"]]},
+    { n: "54", d: "6.5(토)", t: "융합, 경계를 허문 사람들", rows: [
+      ["", "장대익 서울대 교수", "제4차 학습 혁명이 온다"],
+      ["", "나은영 서강대 교수", "세 학문의 징검다리를 넘어: 영문학, 심리학, 커뮤니케이션학"],
+      ["", "김상균 강원대 교수", "게임인류, 게임 지능으로 도전하라"],
+      ["", "유지원 디자이너", "글자 너머로 보는 인간과 사회, 과학과 기술"]]},
+    { n: "55", d: "9.11(토)", t: "함께 만들어가는 미래, 커뮤니티", rows: [
+      ["", "박한선 신경인류학자", "커뮤니티의 진화: 축복 혹은 재앙"],
+      ["", "송의영 서강대 교수", "세계경제의 통합: 성과와 갈등"],
+      ["", "강윤희 서울대 교수", "언어를 통해 본 커뮤니티와 정체성"],
+      ["", "김승주 고려대 교수", "세계는 왜 암호화폐와 블록체인에 열광하는가?"]]},
+    { n: "56", d: "10.23(토)", t: "미래공간: 상상이 현실로", rows: [
+      ["", "강예린 서울대 교수", "건축의 항해"],
+      ["", "이경수 서울대 교수", "자율주행자동차와 스마트모빌리티"],
+      ["", "임동근 한국교원대 연구원", "미래도시를 상상하다"],
+      ["", "하정화 서울대 교수", "3cm의 장벽을 넘어 모두의 공간으로"]]},
+    { n: "57", d: "11.13(토)", t: "난제와 딜레마", rows: [
+      ["", "최병일 한국고등교육재단 사무총장", "협상가는 딜레마를 어떻게 해결할까?"],
+      ["", "김상현 고등과학원 교수", "인간, 수학, 컴퓨터"],
+      ["", "은유 작가", "보다 먼 이웃을 사랑하는 법 – ‘있지만 없는 아이들’을 중심으로"],
+      ["", "김현섭 서울대 교수", "낙태는 그른가? 죄인가?"]]}
+  ]},
+  { y: "2022", s: [
+    { n: "58", d: "4.2(토)", rows: [
+      ["공학", "손혁 SK온 비즈파트너쉽 그룹장", "Future Battery Business 산업의 동향 및 전망"],
+      ["인문교양", "박상미 한국외대 국제학부 교수", "문화유산과 국제협력"],
+      ["문화예술", "조윤범 바이올리니스트", "음악사의 하이라이트"],
+      ["사회과학", "최인철 서울대 심리학과 교수", "행복의 It factor"]]},
+    { n: "59", d: "5.14(토)", rows: [
+      ["인문교양", "김헌 서울대 인문학연구원 교수", "그리스 로마 신화에서 배우는 삶의 지혜"],
+      ["공학", "이강욱 University of Wisconsin–Madison 조교수", "신뢰 가능한 인공지능에 대하여"],
+      ["자연과학", "권영준 연세대 물리학과 교수", "우리는 왜 존재하는가? – 입자 세계의 신비와 존재의 이유"],
+      ["사회과학", "박지선 숙명여대 사회심리학과 교수", "열등감과 범죄심리: 더 나은 나를 위하여"]]},
+    { n: "60", d: "6.11(토)", rows: [
+      ["사회과학", "이재열 서울대 사회학과 교수", "플랫폼 사회의 명암"],
+      ["자연과학", "심채경 한국천문연구원 선임연구원", "우주의 문을 여는 달 탐사"],
+      ["인문교양", "장강명 소설가", "디지털 미디어 시대의 읽기와 쓰기"],
+      ["공학", "홍용택 서울대 전기정보공학부 교수", "늘어나는 전자기술의 혁신: 꿈과 도전"]]},
+    { n: "61", d: "9.17(토)", rows: [
+      ["사회과학", "이숙종 성균관대 행정학과 교수", "세계 민주주의의 후퇴와 한국 민주주의의 복원력"],
+      ["사회과학", "이재승 고려대 국제대학 교수", "우크라이나 전쟁이 열어놓은 판도라의 상자"],
+      ["인문교양", "김동주 KAIST 디지털인문사회과학부 교수", "인류, 인류세, 그리고 기후위기"],
+      ["문화예술", "한명수 우아한형제들 CCO", "창의성의 발견, 말랑말랑 내곁에"]]},
+    { n: "62", d: "10.15(토)", rows: [
+      ["사회과학", "이옥연 서울대 정치외교학부 교수", "유럽과 민주주의가 주는 함의"],
+      ["자연과학", "남궁인 이대 목동병원 응급의학과 조교수", "응급실의 불평등"],
+      ["인문교양", "권보드래 고려대 국어국문학과 교수", "백 년 동안의 문학"],
+      ["문화예술", "선승혜 대전시립미술관 관장", "미래도시의 디지털 환상 예술"]]},
+    { n: "63", d: "1.19(토)", rows: [
+      ["문화예술", "서희태 KNN 방송교향악단 상임지휘자", "천재와 악성의 만남"],
+      ["공학", "정진욱 삼성전자 수석연구원", "기술로 보는 미래"],
+      ["자연과학", "장구 서울대 수의과대학 교수", "동물을 돌보고 연구합니다"],
+      ["사회과학", "김대일 서울대 경제학부 교수", "경제학과 우리의 삶"]]}
+  ]},
+  { y: "2023", s: [
+    { n: "64", d: "4.8(토)", rows: [
+      ["자연과학", "정민선 최종현학술원 과학혁신1팀 팀장", "생명이 있는 과학"],
+      ["사회과학", "김재석 서울대 인류학과 교수", "동아시아의 문화와 전지구화"],
+      ["공학", "최문규 연세대 건축공학과 교수", "건축은 어떻게 만들어지는가?"],
+      ["문화예술", "정우철 도슨트", "인생을 바꾼 명화 이야기"]]},
+    { n: "65", d: "5.13(토)", rows: [
+      ["공학", "석민구 Columbia University 전기공학부 교수", "My Regrets and Joys as a Computer Engineering Student"],
+      ["사회과학", "유현재 서강대 신문방송학과 교수", "진로는 선택이 아닙니다. 창조입니다!"],
+      ["인문교양", "이승은 고려대 국어국문학과 교수", "인간, 이야기, 데이터"],
+      ["비즈니스", "백영재 전 한국필립모리스 대표이사", "비즈니스 세계로 간 인류학자"]]},
+    { n: "66", d: "4.2(토)", rows: [
+      ["사회과학", "박현도 서강대 유로메나연구소 대우교수", "이란과 세계: 이란을 보는 눈"],
+      ["공학", "신기정 KAIST 김재철AI대학원 조교수", "초연결사회와 인공지능"],
+      ["인문교양", "강성훈 서울대 철학과 교수", "검토되지 않은 삶은 살 만하지 않은 것인가"],
+      ["문화예술", "구범준 세바시 대표 PD", "인생을 바꾸는 네가지 질문"]]},
+    { n: "67", d: "9.23(토)", rows: [
+      ["자연과학", "최정모 부산대 화학과 교수", "생물리화학: 화학, 물리, 생물학의 경계에서"],
+      ["공학", "이재훈 KAIST 경영대학 겸직교수", "게임 및 금융 업계 AI 활용 사례"],
+      ["인문교양", "김태원 구글코리아 전무", "‘재정의’의 시대와 창의적 관점: 우리에게 삼각돛이 있는가?"],
+      ["자연과학", "백인화 경희대 약학대학 조교수", "포스트 팬데믹 사회 바이오 의약품"]]},
+    { n: "68", d: "11.18(토)", rows: [
+      ["공학", "박현우 서울대 데이터사이언스대학원 교수", "데이터사이언스 특강: 데이터 시각화와 네트워크 분석 소개"],
+      ["사회과학", "신재용 서울대 경영대학 교수", "MZ가 말하는 공정과 기회"],
+      ["인문교양", "이은수 서울대 철학과 교수", "나만의 생각, 나만의 길, 세상의 필요 속에서"],
+      ["사회과학", "한순구 연세대 경제학부 교수", "젊음과 시간의 경제학"]]}
+  ]},
+  { y: "2024", s: [
+    { n: "69", d: "5.11(토)", t: "인공지능 기술을 맞이할 준비", rows: [
+      ["", "천현득 서울대 과학학과 교수", "철학자가 테크놀로지를 읽는 법"],
+      ["", "이광석 서울과학기술대 디지털문화정책전공 교수", "인공지능과 생태주의"],
+      ["", "최문정 KAIST 과학기술정책대학원 교수", "사회복지가 인공지능을 만났을 때"]]},
+    { n: "70", d: "6.15(토)", t: "알기 쉬운 기후변화 이야기", rows: [
+      ["", "구지민 작가", "기후위기시대, 우리는 어떻게 살 것인가?"],
+      ["", "국종성 서울대학교 교수", "인간이 만든 기후변화"],
+      ["", "이준이 부산대 교수", "우리의 선택이 미래 기후를 정한다"]]},
+    { n: "71", d: "9.28(토)", t: "인구감소가 불러올 미래는?", rows: [
+      ["", "김태유 서울대학교 명예교수", "한국, 인구문제 어떻게 돌파할 것인가?"],
+      ["", "전영수 한양대학교 교수", "인구를 알아야 미래가 보인다"],
+      ["", "정현숙 한국방송통신대학교 교수", "대한민국은 인구문제를 해결할 의지와 능력이 있는가?"]]}
+  ]}
+];
+
+// '강단에 선 사람들' 티커 — 2023–2024년 초청특강 연사 (+ 확인된 이전 연사).
+// 표기는 이름 + 소속(기관)만. 직위는 변동이 잦아 표시하지 않습니다.
+// conf: "확인" = 2026-08-21 웹 조회 검증 / "추정" = 강연 당시 기관 유지, 이동 미발견 / "보류" = 미확인, 노출 제외
+const SPEAKERS = [
+  { name: "정민선", now: "최종현학술원 과학혁신1팀", then: "최종현학술원 과학혁신1팀 팀장", conf: "추정", src: "", checked: "" },
+  { name: "김재석", now: "서울대", then: "서울대 인류학과 교수", conf: "추정", src: "", checked: "" },
+  { name: "최문규", now: "연세대", then: "연세대 건축공학과 교수", conf: "추정", src: "", checked: "" },
+  { name: "정우철", now: "도슨트", then: "도슨트", conf: "추정", src: "", checked: "" },
+  { name: "석민구", now: "Columbia University", then: "Columbia University 전기공학부 교수", conf: "추정", src: "", checked: "" },
+  { name: "유현재", now: "서강대", then: "서강대 신문방송학과 교수", conf: "추정", src: "", checked: "" },
+  { name: "이승은", now: "고려대", then: "고려대 국어국문학과 교수", conf: "추정", src: "", checked: "" },
+  { name: "백영재", now: "한국필립모리스", then: "전 한국필립모리스 대표이사", conf: "보류", src: "", checked: "", note: "전 한국필립모리스 대표이사 — 현 소속 확인 필요" },
+  { name: "박현도", now: "서강대 유로메나연구소", then: "서강대 유로메나연구소 대우교수", conf: "확인", src: "euro-mena.net 2026.06", checked: "2026-08-21" },
+  { name: "신기정", now: "KAIST", then: "KAIST 김재철AI대학원 조교수", conf: "확인", src: "STAR Library 연구자 정보", checked: "2026-08-21" },
+  { name: "강성훈", now: "서울대", then: "서울대 철학과 교수", conf: "추정", src: "", checked: "" },
+  { name: "구범준", now: "세바시", then: "세바시 대표 PD", conf: "추정", src: "", checked: "" },
+  { name: "최정모", now: "부산대", then: "부산대 화학과 교수", conf: "추정", src: "", checked: "" },
+  { name: "이재훈", now: "KAIST", then: "KAIST 경영대학 겸직교수", conf: "추정", src: "", checked: "" },
+  { name: "김태원", now: "청와대 청년미래비서관", then: "구글코리아 전무", conf: "확인", src: "전자신문·아시아투데이 2026.07.16", checked: "2026-08-21" },
+  { name: "백인화", now: "경희대", then: "경희대 약학대학 조교수", conf: "추정", src: "", checked: "" },
+  { name: "박현우", now: "서울대", then: "서울대 데이터사이언스대학원 교수", conf: "추정", src: "", checked: "" },
+  { name: "신재용", now: "서울대", then: "서울대 경영대학 교수", conf: "추정", src: "", checked: "" },
+  { name: "이은수", now: "서울대", then: "서울대 철학과 교수", conf: "추정", src: "", checked: "" },
+  { name: "한순구", now: "연세대", then: "연세대 경제학부 교수", conf: "추정", src: "", checked: "" },
+  { name: "천현득", now: "서울대", then: "서울대 과학학과 교수", conf: "추정", src: "", checked: "" },
+  { name: "이광석", now: "서울과학기술대", then: "서울과학기술대 디지털문화정책전공 교수", conf: "추정", src: "", checked: "" },
+  { name: "최문정", now: "KAIST", then: "KAIST 과학기술정책대학원 교수", conf: "추정", src: "", checked: "" },
+  { name: "구지민", now: "작가", then: "작가", conf: "추정", src: "", checked: "" },
+  { name: "국종성", now: "서울대", then: "서울대학교 교수", conf: "추정", src: "", checked: "" },
+  { name: "이준이", now: "부산대", then: "부산대 교수", conf: "추정", src: "", checked: "" },
+  { name: "김태유", now: "서울대", then: "서울대학교 명예교수", conf: "추정", src: "", checked: "" },
+  { name: "전영수", now: "한양대", then: "한양대학교 교수", conf: "추정", src: "", checked: "" },
+  { name: "정현숙", now: "한국방송통신대", then: "한국방송통신대학교 교수", conf: "추정", src: "", checked: "" },
+  { name: "염재호", now: "태재대", then: "(2023년 이전 강연)", conf: "확인", src: "태재대 공식 / 위키백과", checked: "2026-08-21" },
+  { name: "장대익", now: "가천대", then: "(2023년 이전 강연)", conf: "확인", src: "gachon.ac.kr/startup 프로필", checked: "2026-08-21" },
+];
+
+
+class Component extends DCLogic {
+  state = { archive: null, active: 0, speakers: null };
+
+  componentDidMount() {
+    setTimeout(() => import("./reveal.js").then((m) => m.initReveal()).catch(() => {}), 120);
+    this.setState({ archive: YEARS, active: YEARS.length - 1, speakers: SPEAKERS });
+  }
+
+  renderVals() {
+    const arch = this.state.archive || [];
+    const cur = arch[this.state.active];
+
+    const people = (this.state.speakers || [])
+      .filter((p) => p.conf === "확인" || p.conf === "추정")
+      .map((p) => ({ name: p.name, aff: p.now || "" }));
+
+    const lanes = [[], [], []];
+    people.forEach((p, i) => lanes[i % 3].push(p));
+
+    return {
+      diffs: [
+        { text: "학교로 찾아가는 방문특강과 달리, 학생들이 재단으로 찾아옵니다." },
+        { text: "하루에 여러 분야의 강연을 이어 들으며 관심의 폭을 넓힙니다." },
+        { text: "학생들이 관심 있는 주제에 맞춰 연사를 섭외합니다." },
+        { text: "여러 지역에서 모인 또래를 만나 서로에게 자극을 주고받으며 함께 성장합니다." }
+      ],
+      overview: [
+        { k: "대상", v: "전국 고등학생 (학교 단위 참여)" },
+        { k: "장소", v: "한국고등교육재단 (서울 강남구 테헤란로 211)" },
+        { k: "구성", v: "하루 3개 강연 + 질의응답 + 퀴즈" },
+        { k: "연사", v: "재단 출신 석학 및 외부 전문가" },
+        { k: "참가비", v: "없음 (버스 대절비까지 재단 지원)" }
+      ],
+      goBack: (e) => { e.preventDefault(); if (history.length > 1) history.back(); else location.hash = "#home"; },
+      speakerRows: lanes.map((lane, n) => ({
+        key: n,
+        style: "display:flex; gap:12px; width:max-content; animation:" +
+          (n === 1 ? "driftBack " : "drift ") + (85 + n * 14) + "s linear infinite",
+        items: lane.concat(lane).map((p, i) => ({ key: i, name: p.name, aff: p.aff }))
+      })),
+      tabs: arch.map((y, n) => ({
+        key: n, label: y.y,
+        onClick: () => this.setState({ active: n }),
+        style: "border:none; cursor:pointer; font-family:inherit; font-size:14.5px; font-weight:800; letter-spacing:-.01em; padding:11px 20px; border-radius:999px; " +
+          (n === this.state.active ? "background:#152452; color:#fff" : "background:#fff; color:#5A6076; box-shadow:0 1px 2px rgba(21,36,82,.06)")
+      })),
+      sessions: (cur ? cur.s : []).map((s, n) => ({
+        key: n, no: s.n, date: s.d, theme: s.t || "",
+        rows: s.rows.map((r, i) => ({ key: i, kind: r[0], speaker: r[1], topic: r[2] }))
+      })),
+      intro: [
+        { value: "2013년", label: "첫 개최" },
+        { value: "전국", label: "고등학생 대상" },
+        { value: "재단 초청", label: "참가비 없음" }
+      ],
+      topics: TOPICS.map((t) => ({ key: t.no, no: t.no, title: t.title })),
+      achievements: [
+        { value: "71회", label: "누적 개최", note: "2013년 12월 첫 개최 이후" },
+        { value: "17개", label: "참여 시·도", note: "전국 광역 시·도" },
+        { value: "18,780명", label: "참가 학생 수", note: "현장 참여 및 웨비나 참여" }
+      ],
+      ticker: STRIP.concat(STRIP).map((src, n) => ({ key: n, src: src }))
+    };
+  }
+}
+
+</script>
+</body>
+</html>

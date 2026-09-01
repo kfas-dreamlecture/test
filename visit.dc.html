@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@1.3.9/dist/web/variable/pretendardvariable.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+  body { margin:0; background:#F4F2EC; font-family:"Pretendard Variable",Pretendard,-apple-system,sans-serif; -webkit-font-smoothing:antialiased; color:#1A2138; }
+  a { color:#152452; text-decoration:none; } a:hover { color:#D9A400; }
+  img { display:block; }
+  @keyframes riseIn { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:none; } }
+  @keyframes bar { from { transform:scaleX(0); } to { transform:scaleX(1); } }
+  @keyframes drift { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+  @keyframes driftQ { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+  @keyframes slowZoom { from { transform:scale(1); } to { transform:scale(1.08); } }
+</style>
+</helmet>
+
+<div style="width:100%; background:#F4F2EC">
+
+  <!-- NAV -->
+  <div style="position:relative; z-index:50; background:#FFFFFF; border-bottom:1px solid #E3DFD4">
+    <div class="dl-nav" style="max-width:1200px; margin:0 auto; padding:14px 44px; min-height:84px; display:flex; align-items:center; gap:24px; flex-wrap:wrap">
+      <a class="dl-nav-brand" href="#home" style="flex:none; display:flex; align-items:center; gap:14px; white-space:nowrap">
+        <img class="dl-nav-logo" src="assets-min/img-02.png" alt="드림렉쳐" style="height:54px; width:auto; display:block">
+        <span class="dl-nav-title" style="flex:none; color:#152452; font-size:18px; font-weight:800; letter-spacing:-.02em; white-space:nowrap">드림렉쳐 방문특강</span>
+      </a>
+      <div class="dl-nav-links" style="flex:1; min-width:0; display:flex; align-items:center; gap:22px; flex-wrap:wrap">
+        <a class="dl-nav-a" href="#intro" style="color:#3C4358; font-size:14px; font-weight:700; white-space:nowrap" style-hover="color:#D9A400">소개</a>
+        <a class="dl-nav-a" href="#overview" style="color:#3C4358; font-size:14px; font-weight:700; white-space:nowrap" style-hover="color:#D9A400">강연 개요</a>
+        <a class="dl-nav-a" href="#apply" style="color:#3C4358; font-size:14px; font-weight:700; white-space:nowrap" style-hover="color:#D9A400">신청 안내</a>
+        <a class="dl-nav-a" href="#voices" style="color:#3C4358; font-size:14px; font-weight:700; white-space:nowrap" style-hover="color:#D9A400">후기</a>
+      <a class="dl-nav-back" href="#home" onClick="{{ goBack }}" style="flex:none; display:flex; align-items:center; gap:7px; color:#152452; font-size:13px; font-weight:700; padding:8px 15px; border-radius:999px; border:1px solid #D7D2C4; white-space:nowrap; cursor:pointer" style-hover="background:#152452; color:#fff; border-color:#152452"><span style="font-size:15px; line-height:1">←</span>뒤로</a>
+      <div class="dl-nav-tabs" style="margin-left:auto; flex:none; display:flex; align-items:center; gap:2px; padding:4px; background:#F4F2EC; border:1px solid #E3DFD4; border-radius:999px">
+        <a class="dl-nav-tab" href="#visit" style="background:#152452; color:#fff; font-size:13px; font-weight:800; padding:8px 15px; border-radius:999px; white-space:nowrap">방문특강</a>
+        <a class="dl-nav-tab" href="#invite" style="color:#5A6178; font-size:13px; font-weight:700; padding:8px 15px; border-radius:999px; white-space:nowrap" style-hover="background:#EDEAE0; color:#152452">초청특강</a>
+        <a class="dl-nav-tab" href="#hub" style="color:#5A6178; font-size:13px; font-weight:700; padding:8px 15px; border-radius:999px; white-space:nowrap" style-hover="background:#EDEAE0; color:#152452">거점특강</a>
+        <a class="dl-nav-tab" href="#connect" style="color:#5A6178; font-size:13px; font-weight:700; padding:8px 15px; border-radius:999px; white-space:nowrap" style-hover="background:#EDEAE0; color:#152452">커넥트</a>
+      </div>
+        <!-- 상단 신청 버튼: 마감 시 이 줄을 안내형 버튼으로 교체하세요 -->
+        <a class="dl-nav-apply" href="https://script.google.com/macros/s/AKfycbx8JrIdSlwBtIKHUScRC2gEf9TnkiteuNIIRCjJoUNdWCJUxqDdYRkAPvz3qyW_PK0S/exec" target="_blank" rel="noopener" style="background:#152452; color:#fff; font-size:13.5px; font-weight:800; padding:10px 19px; border-radius:999px; white-space:nowrap" style-hover="background:#D9A400">신청하기</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div id="top" style="position:relative; overflow:hidden; background:#0E1936">
+    <img src="assets-min/img-15.jpg" alt="강연 중 손을 든 학생들" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.42; animation:slowZoom 24s ease-out both">
+    <div style="position:absolute; inset:0; background:linear-gradient(105deg,rgba(14,25,54,.94) 0%,rgba(14,25,54,.72) 45%,rgba(14,25,54,.35) 100%)"></div>
+    <div class="dl-hero-pad" style="position:relative; max-width:1200px; margin:0 auto; padding:76px 40px 68px; min-height:420px; display:flex; flex-direction:column; justify-content:flex-start; gap:26px">
+      <span style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11.5px; font-weight:500; letter-spacing:.2em; color:rgba(255,255,255,.5)">DREAM LECTURE / 01</span>
+      <h1 class="dl-h1" style="margin:0; font-size:clamp(48px,6.2vw,92px); line-height:1.0; letter-spacing:-.05em; font-weight:800; color:#fff; white-space:nowrap">방문특강</h1>
+      <p class="dl-h1sub" style="margin:0; font-size:clamp(20px,2.2vw,28px); font-weight:700; letter-spacing:-.035em; color:#FFD400">“너만의 꿈을 키워라!”</p>
+      <p style="margin:0; max-width:560px; font-size:17px; line-height:1.8; color:rgba(255,255,255,.72); text-wrap:pretty">재단 장학생 출신 석학이 전국 고등학교를 직접 찾아갑니다.<br>입시 설명회가 아닌, 순수 지식 나눔을 위한 강연입니다.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:6px">
+        <span class="dl-chip" style="font-size:13px; font-weight:700; color:#fff; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); border-radius:999px; padding:10px 18px">참가비 없음</span>
+        <span class="dl-chip" style="font-size:13px; font-weight:700; color:#fff; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); border-radius:999px; padding:10px 18px">전국 고등학교 대상</span>
+        <span class="dl-chip" style="font-size:13px; font-weight:700; color:#fff; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); border-radius:999px; padding:10px 18px">오프라인 · 온라인(Zoom)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 누적 성과 티커 -->
+  <div style="background:#152452; color:#fff">
+    <div class="dl-band dl-g4" style="max-width:1200px; margin:0 auto; padding:44px 40px; display:grid; grid-template-columns:repeat(4,1fr); gap:24px">
+      <sc-for list="{{ headline }}" as="h" hint-placeholder-count="4">
+        <div style="display:flex; flex-direction:column; gap:8px; border-left:2px solid rgba(240,180,41,.5); padding-left:20px">
+          <span class="dl-stat" style="font-size:38px; font-weight:800; letter-spacing:-.035em; line-height:1; color:#FFD400; font-variant-numeric:tabular-nums; white-space:nowrap">{{ h.value }}</span>
+          <span style="font-size:13px; font-weight:600; color:rgba(255,255,255,.62)">{{ h.label }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- 소개 -->
+  <div class="dl-sec dl-g2" id="intro" style="max-width:1200px; margin:0 auto; padding:104px 40px 0; display:grid; grid-template-columns:1.05fr .95fr; gap:64px; align-items:center">
+    <div style="display:flex; flex-direction:column; gap:22px">
+      <span style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11.5px; font-weight:500; letter-spacing:.18em; color:#D9A400">ABOUT THE PROGRAM</span>
+      <h2 class="dl-h2" style="margin:0; font-size:40px; line-height:1.28; letter-spacing:-.035em; font-weight:800">석학이 교실로<br>직접 찾아갑니다</h2>
+      <p style="margin:0; font-size:16px; line-height:1.85; color:#4A5169; text-wrap:pretty">“너만의 꿈을 키워라!”는 재단 장학금으로 박사 학위를 취득한 학자·전문가가 전국의 고등학교를 직접 방문해 강연하는 프로그램입니다. 전공 소개부터 전공 심화, 진로, 시사, 교양까지 학생들이 궁금해하는 주제를 다루며, 학문의 세계를 처음 접하는 자리를 교실 안에서 만듭니다. 2012년 11월 첫 강연 이후 14년째 이어오고 있습니다.</p>
+    </div>
+    <div class="dl-fig" style="position:relative; height:520px">
+      <div class="dl-fig-a" style="position:absolute; inset:0 60px 80px 0; border-radius:3px; overflow:hidden; box-shadow:0 30px 60px -30px rgba(21,36,82,.5)">
+        <img src="assets-min/img-19.jpg" alt="학교 교실에서 진행된 강연" style="width:100%; height:100%; object-fit:cover">
+      </div>
+      <div class="dl-fig-b" style="position:absolute; right:0; bottom:0; width:280px; height:200px; border-radius:16px; overflow:hidden; border:8px solid #F4F2EC; box-shadow:0 20px 40px -20px rgba(21,36,82,.4)">
+        <img src="assets-min/img-13.jpg" alt="강연 후 학교 단체 사진" style="width:100%; height:100%; object-fit:cover">
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 강연 개요 -->
+  <div class="dl-sec" id="overview" style="max-width:1200px; margin:0 auto; padding:104px 40px 0; display:flex; flex-direction:column; gap:36px">
+    <div style="display:flex; flex-direction:column; gap:14px">
+      <span style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11.5px; font-weight:500; letter-spacing:.18em; color:#D9A400">OVERVIEW</span>
+      <h2 class="dl-h2" style="margin:0; font-size:40px; line-height:1.28; letter-spacing:-.035em; font-weight:800">프로그램 개요</h2>
+    </div>
+
+    <div class="dl-g3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px">
+      <div style="background:#fff; border-radius:3px; overflow:hidden; border:1px solid #E4E0D5">
+        <div style="height:170px; overflow:hidden"><img src="assets-min/img-16.jpg" alt="참여 학교 단체 사진" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="dl-card-pad" style="padding:26px 26px 30px; display:flex; flex-direction:column; gap:10px">
+          <h3 style="margin:0; font-size:19px; font-weight:800; letter-spacing:-.025em">전국 고등학생</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75; color:#5A6178; text-wrap:pretty">참가를 희망하는 전국 고등학생이 대상입니다. 학교별 30명 내외 모집을 권장하지만 인원 제한은 없습니다.</p>
+        </div>
+      </div>
+      <div style="background:#fff; border-radius:3px; overflow:hidden; border:1px solid #E4E0D5">
+        <div style="height:170px; overflow:hidden"><img src="assets-min/img-18.jpg" alt="다른 지역 학교의 단체 사진" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="dl-card-pad" style="padding:26px 26px 30px; display:flex; flex-direction:column; gap:10px">
+          <h3 style="margin:0; font-size:19px; font-weight:800; letter-spacing:-.025em">지역 균형 선발</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75; color:#5A6178; text-wrap:pretty">지역 균형·일정·신청 동기를 종합 고려해 특정 지역에 편중되지 않도록 전국의 학교를 골고루 선정합니다.</p>
+        </div>
+      </div>
+      <div style="background:#fff; border-radius:3px; overflow:hidden; border:1px solid #E4E0D5">
+        <div style="height:170px; overflow:hidden"><img src="assets-min/img-09.jpg" alt="강연장을 가득 채운 학생들" style="width:100%; height:100%; object-fit:cover"></div>
+        <div class="dl-card-pad" style="padding:26px 26px 30px; display:flex; flex-direction:column; gap:10px">
+          <h3 style="margin:0; font-size:19px; font-weight:800; letter-spacing:-.025em">14년째 이어온 사업</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75; color:#5A6178; text-wrap:pretty">2012년 11월 시작 이래 누적 903개 학교, 149,521명의 학생이 함께했습니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dl-g2" style="display:grid; grid-template-columns:1fr 1fr; gap:20px">
+      <div class="dl-kv-box" style="background:#fff; border-radius:3px; padding:14px 34px 22px; border:1px solid #E4E0D5">
+        <sc-for list="{{ overview }}" as="o" hint-placeholder-count="5">
+          <div style="display:flex; gap:24px; padding:20px 0; border-bottom:1px solid #EEEBE2">
+            <span class="dl-kv-k" style="flex:none; width:92px; font-size:14px; font-weight:800; color:#152452">{{ o.k }}</span>
+            <span style="font-size:14.5px; line-height:1.65; color:#4A5169">{{ o.v }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div class="dl-panel" style="background:#152452; border-radius:3px; padding:40px 38px; display:flex; flex-direction:column; gap:22px">
+        <h3 style="margin:0; font-size:22px; font-weight:800; letter-spacing:-.03em; color:#fff">이런 점이 다릅니다</h3>
+        <sc-for list="{{ diffs }}" as="d" hint-placeholder-count="4">
+          <div style="display:flex; gap:14px; align-items:flex-start">
+            <span style="flex:none; margin-top:8px; width:6px; height:6px; border-radius:50%; background:#FFD400"></span>
+            <p style="margin:0; font-size:15px; line-height:1.7; color:rgba(255,255,255,.8); text-wrap:pretty">{{ d.text }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <!-- 신청 안내 -->
+  <div class="dl-sec" id="apply" style="max-width:1200px; margin:0 auto; padding:104px 40px 0; display:flex; flex-direction:column; gap:36px">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:32px; flex-wrap:wrap">
+      <div style="display:flex; flex-direction:column; gap:14px">
+        <span style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11.5px; font-weight:500; letter-spacing:.18em; color:#D9A400">HOW TO APPLY</span>
+        <h2 class="dl-h2" style="margin:0; font-size:40px; line-height:1.28; letter-spacing:-.035em; font-weight:800">신청 절차</h2>
+      </div>
+      <div style="display:flex; align-items:center; gap:12px; background:#FFF6E0; border:1px solid #F3DFA8; border-radius:12px; padding:16px 22px">
+        <span style="width:8px; height:8px; border-radius:50%; background:#D9A400"></span>
+        <span style="font-size:14px; font-weight:700; color:#7A5A00">학교 모집 8. 18.(화) – 8. 31.(월)</span>
+      </div>
+    </div>
+
+    <div class="dl-g3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px">
+      <sc-for list="{{ steps }}" as="s" hint-placeholder-count="3">
+        <div class="dl-card-pad" style="background:#fff; border-radius:3px; padding:34px 32px 36px; display:flex; flex-direction:column; gap:18px; border:1px solid #E4E0D5; border-top:3px solid #152452">
+          <div style="display:flex; align-items:center; gap:12px">
+            <span style="width:32px; height:32px; border-radius:50%; background:#152452; color:#FFD400; font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center">{{ s.no }}</span>
+            <h3 style="margin:0; font-size:20px; font-weight:800; letter-spacing:-.03em">{{ s.title }}</h3>
+          </div>
+          <span style="font-size:12.5px; font-weight:700; color:#D9A400">{{ s.when }}</span>
+          <div style="display:flex; flex-direction:column; gap:11px">
+            <sc-for list="{{ s.items }}" as="it" hint-placeholder-count="3">
+              <div style="display:flex; gap:11px; align-items:flex-start">
+                <span style="flex:none; margin-top:9px; width:4px; height:4px; border-radius:50%; background:#C9C3B2"></span>
+                <p style="margin:0; font-size:14.5px; line-height:1.7; color:#4A5169; text-wrap:pretty">{{ it.text }}</p>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+
+    <span style="align-self:flex-end; font-size:13px; font-weight:700; color:#8A8FA3">일정은 사정에 따라 변경될 수 있습니다</span>
+
+    <a class="dl-cta" href="https://script.google.com/macros/s/AKfycbx8JrIdSlwBtIKHUScRC2gEf9TnkiteuNIIRCjJoUNdWCJUxqDdYRkAPvz3qyW_PK0S/exec" target="_blank" rel="noopener" style="align-self:center; margin-top:8px; background:#152452; color:#fff; font-size:16px; font-weight:800; padding:19px 44px; border-radius:999px" style-hover="background:#FFD400; color:#152452">방문특강 신청하기 →</a>
+  </div>
+
+  <!-- 후기 -->
+  <div class="dl-band-y dl-mt" id="voices" style="margin-top:104px; background:#EBE7DD; padding:96px 0">
+    <div class="dl-padx" style="max-width:1200px; margin:0 auto; padding:0 40px; display:flex; flex-direction:column; gap:40px">
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:40px; flex-wrap:wrap">
+        <div style="display:flex; flex-direction:column; gap:14px; max-width:620px">
+          <span style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11.5px; font-weight:500; letter-spacing:.18em; color:#D9A400">STUDENT VOICES OF 2025</span>
+          <h2 class="dl-h2" style="margin:0; font-size:40px; line-height:1.28; letter-spacing:-.035em; font-weight:800">강연장을 나서며<br>학생들이 남긴 문장들</h2>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(2,auto); gap:14px 40px">
+          <sc-for list="{{ survey }}" as="s" hint-placeholder-count="4">
+            <div style="display:flex; flex-direction:column; gap:4px">
+              <span class="dl-stat-s" style="font-size:26px; font-weight:800; letter-spacing:-.03em; color:#152452; font-variant-numeric:tabular-nums">{{ s.value }}</span>
+              <span style="font-size:12.5px; font-weight:600; color:#7A7466">{{ s.label }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div class="dl-g2" style="display:grid; grid-template-columns:1.12fr .88fr; align-items:center">
+        <div style="position:relative; aspect-ratio:4/3; border-radius:22px; overflow:hidden; background:#D8D2C4; box-shadow:0 26px 60px -32px rgba(21,36,82,.55)">
+          <sc-for list="{{ slidePhotos }}" as="p" hint-placeholder-count="6">
+            <img src="{{ p.src }}" alt="드림렉쳐 강연 현장" style="{{ p.style }}">
+          </sc-for>
+        </div>
+
+        <div class="dl-voice-card" style="margin-left:-24px; position:relative; z-index:2; background:#fff; border-radius:3px; padding:48px 44px 36px; box-shadow:0 22px 50px -28px rgba(21,36,82,.4); display:flex; flex-direction:column; gap:28px; min-height:380px">
+          <div style="display:flex; justify-content:space-between; align-items:center">
+            <span style="font-size:50px; line-height:.6; color:#FFD400; font-weight:800">“</span>
+            <span style="font-size:13px; font-weight:800; letter-spacing:.06em; color:#A8A296">{{ current.counter }}</span>
+          </div>
+          <div key="{{ current.key }}" style="display:flex; flex-direction:column; gap:24px; animation:riseIn .55s cubic-bezier(.2,.7,.3,1) both">
+            <p class="dl-quote" style="margin:0; font-size:26px; line-height:1.6; font-weight:700; letter-spacing:-.03em; color:#152452; text-wrap:pretty">{{ current.quote }}</p>
+            <div style="display:flex; flex-direction:column; gap:5px; padding-left:14px; border-left:2px solid #FFD400">
+              <span style="font-size:14.5px; font-weight:700; color:#152452">{{ current.who }}</span>
+              <span style="font-size:13px; color:#8A8578; font-weight:500">{{ current.sub }}</span>
+            </div>
+          </div>
+          <div style="margin-top:auto; display:flex; flex-direction:column; gap:18px">
+            <div style="height:2px; background:#EEEBE2; border-radius:2px; overflow:hidden">
+              <div key="{{ current.key }}" style="{{ barStyle }}"></div>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center">
+              <button onClick="{{ toggle }}" style="border:none; background:transparent; padding:0; font-family:inherit; font-size:13px; font-weight:700; color:#8A8578; cursor:pointer" style-hover="color:#152452">{{ playLabel }}</button>
+              <div style="display:flex; gap:10px">
+                <button onClick="{{ prev }}" style="width:44px; height:44px; border-radius:50%; border:1px solid #DEDACF; background:#fff; color:#152452; font-size:15px; cursor:pointer" style-hover="background:#152452; color:#fff; border-color:#152452">←</button>
+                <button onClick="{{ next }}" style="width:44px; height:44px; border-radius:50%; border:1px solid #DEDACF; background:#fff; color:#152452; font-size:15px; cursor:pointer" style-hover="background:#152452; color:#fff; border-color:#152452">→</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 현장 스케치 -->
+  <div class="dl-mt" style="background:#152452; padding:44px 0; margin-top:96px; overflow:hidden">
+    <div style="display:flex; gap:14px; width:max-content; animation:drift 90s linear infinite" style-hover="animation-play-state:paused">
+      <sc-for list="{{ ticker }}" as="t" hint-placeholder-count="10">
+        <img class="dl-marquee-img" src="{{ t.src }}" alt="드림렉쳐 현장" style="{{ t.style }}">
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- 영상 -->
+  <div class="dl-sec" style="max-width:1200px; margin:0 auto; padding:104px 40px 0; display:flex; flex-direction:column; gap:22px">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap">
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <span style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11.5px; font-weight:500; letter-spacing:.18em; color:#D9A400">VIDEO</span>
+        <h2 class="dl-h2" style="margin:0; font-size:40px; line-height:1.28; letter-spacing:-.035em; font-weight:800">영상으로 보는 방문특강</h2>
+      </div>
+      <a href="https://www.youtube.com/watch?v=LvTAkL8-zqM" target="_blank" rel="noopener" style="font-size:14px; font-weight:700; border-bottom:2px solid #FFD400; padding-bottom:3px; white-space:nowrap">유튜브에서 보기 →</a>
+    </div>
+    <div style="position:relative; width:100%; aspect-ratio:16/9; border-radius:3px; overflow:hidden; background:#0E1936; box-shadow:0 24px 56px -30px rgba(21,36,82,.55)">
+      <a href="https://www.youtube.com/watch?v=LvTAkL8-zqM" target="_blank" rel="noopener" style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:#0E1936">
+        <img src="assets-min/img-23.jpg" alt="영상 미리보기" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover">
+        <span style="position:absolute; inset:0; background:linear-gradient(rgba(14,25,54,.25),rgba(14,25,54,.5))"></span>
+        <span class="dl-play" style="position:relative; width:82px; height:82px; border-radius:50%; background:#FFD400; color:#152452; font-size:28px; display:flex; align-items:center; justify-content:center; padding-left:5px; box-shadow:0 16px 40px -12px rgba(0,0,0,.65)">▶</span>
+        <span style="position:absolute; bottom:22px; left:26px; font-size:13px; font-weight:700; color:rgba(255,255,255,.85)">유튜브에서 재생</span>
+      </a>
+    </div>
+  </div>
+
+
+  <div class="dl-spacer" style="height:96px"></div>
+
+  <dc-import data-no-reveal="1" name="Chatbot" accent="#FFD400" hint-size="0px,0px"></dc-import>
+
+  <!-- FOOTER -->
+  <div class="dl-foot-pad" style="background:#0E1936; color:rgba(255,255,255,.55); padding:52px 0">
+    <div class="dl-padx" style="max-width:1200px; margin:0 auto; padding:0 40px; display:flex; justify-content:space-between; align-items:flex-start; gap:40px; flex-wrap:wrap">
+      <div style="display:flex; flex-direction:column; gap:16px">
+        <a href="https://www.kfas.or.kr/" target="_blank" rel="noopener" style="align-self:flex-start; opacity:.85" style-hover="opacity:1">
+          <img class="dl-foot-logo" src="assets-min/img-05.png" alt="한국고등교육재단 홈페이지" style="width:232px; height:100px; object-fit:contain; object-position:left center; filter:brightness(0) invert(1); display:block">
+        </a>
+        <p style="margin:0; font-size:13.5px; line-height:1.9">서울특별시 강남구 테헤란로 211 (우 06141)<br>전화 02-6310-7876 · <a href="mailto:dreamlecture@kfas.or.kr" style="color:rgba(255,255,255,.75)">dreamlecture@kfas.or.kr</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script class="dl-chip dl-marquee-img" type="text/x-dc" data-dc-script="" data-props="{&quot;autoplaySeconds&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:7,&quot;min&quot;:3,&quot;max&quot;:15,&quot;step&quot;:1,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;}}">
+const PHOTOS = ["assets-min/img-06.jpg","assets-min/visit2/v14.jpg","assets-min/img-17.jpg","assets-min/visit2/v04.jpg","assets-min/img-21.jpg","assets-min/visit2/v08.jpg"];
+const STRIP = ["assets-min/img-03.jpg","assets-min/visit2/v01.jpg","assets-min/img-12.jpg","assets-min/visit2/v03.jpg","assets-min/img-11.jpg","assets-min/visit2/v05.jpg","assets-min/img-16.jpg","assets-min/visit2/v07.jpg","assets-min/img-18.jpg","assets-min/visit2/v09.jpg","assets-min/img-13.jpg","assets-min/visit2/v11.jpg","assets-min/visit2/v13.jpg","assets-min/visit2/v15.jpg","assets-min/visit2/v02.jpg","assets-min/visit2/v04.jpg","assets-min/visit2/v06.jpg","assets-min/visit2/v08.jpg","assets-min/visit2/v10.jpg","assets-min/visit2/v12.jpg"];
+
+const Q = [
+  { quote: "꿈과 미래에 대해 두려움이 있었는데, 이번 강연을 통해 그 해답을 찾도록 도와주신 것 같아 감사했다.", who: "호수돈여자고등학교 1학년 김○○", sub: "2025년 학생 설문조사 응답" },
+  { quote: "꿈에 대해 어떻게 접근해야 할지 막연했는데, 이번 강연을 통해 방향성을 잡은 것 같다.", who: "애월고등학교 1학년 옥○○", sub: "2025년 학생 설문조사 응답" },
+  { quote: "실제로 내 꿈과 비슷하고 관심 있는 학과의 교수님이 오셔서 직접 강연해 주시다 보니, 지금까지 들었던 문과 과목의 이야기와 설명보다 더 전문성이 있었다. 교수님 본인의 경험을 통해 깨달은 점도 많이 이야기해 주셔서 정말 뜻깊은 시간이었다.", who: "서인천고등학교 1학년 이○○", sub: "2025년 학생 설문조사 응답" },
+  { quote: "내용이 수박 겉핥기식이 아닌, 깊은 내용을 탐구할 수 있어서 좋았다.", who: "증산고등학교 2학년 김○○", sub: "2025년 학생 설문조사 응답" },
+  { quote: "잘 알지 못했던 분야를 접할 수 있다는 점이 좋았고, 단순히 해당 분야에 대한 이야기뿐 아니라 살아가면서 겪을 수 있는 다양한 상황과 그 삶을 이겨내는 방법을 알려주셔서 좋았다.", who: "명덕외국어고등학교 1학년 이○○", sub: "2025년 학생 설문조사 응답" },
+  { quote: "내가 몰랐던 내용을 하나하나 자세히 들을 수 있어서 좋았고, 진로의 방향성을 잡으며 목표가 생기게 된 의미 있는 강의였다.", who: "전주영생고등학교 2학년 남○○", sub: "2025년 학생 설문조사 응답" }
+];
+
+const FAQ = [
+  { q: "진로특강이나 입시 설명회인가요?", a: "아니요. 드림렉쳐는 대학 입시 설명회나 직업인 진로특강이 아닙니다. 석학이 자신의 학문 세계를 소개하며 학생들이 스스로 진로와 가능성을 넓혀 보도록 돕는 순수 지식나눔 프로그램입니다." },
+  { q: "참가비가 있나요?", a: "없습니다. 강연료·교통비 등 제반 비용은 전액 재단이 부담하며 국고지원은 받지 않습니다." },
+  { q: "누가 신청하나요?", a: "고등학교 교사가 신청 페이지를 통해 직접 온라인으로 신청합니다. 신청서에 희망 강연 주제와 가능한 일정을 확인해 주세요." },
+  { q: "몇 명이 참여할 수 있나요?", a: "학교별 30명 내외 모집을 권장하지만 인원 제한은 없습니다. 강연 주제에 관심 있는 학생이 모일수록 만족도가 높습니다." },
+  { q: "일정을 변경하거나 취소할 수 있나요?", a: "결과 공지 이후에는 일정 변경이 불가합니다. 강연을 취소할 경우 추후 신청이 제한될 수 있으니 신중하게 신청해 주세요. 부득이한 사정이 있다면 담당자에게 먼저 연락 주시기 바랍니다." },
+  { q: "온라인으로도 가능한가요?", a: "가능합니다. 오프라인 학교 방문 외에 Zoom을 통한 온라인 강연도 진행하고 있어 지역과 상관없이 참여할 수 있습니다." }
+];
+
+const BOT = [
+  { label: "방문특강이란?", a: "재단 장학금으로 박사 학위를 취득한 학자·전문가가 전국 고등학교를 직접 방문(또는 온라인 Zoom)해 전공소개, 전공심화, 진로, 시사, 교양 등을 주제로 강연하는 지식나눔 프로그램입니다. 2012년 11월 시작해 14년째 이어오고 있어요." },
+  { label: "진로특강인가요?", a: "아니요. 대학 입시 설명회나 직업인 진로특강이 아닙니다. 석학이 자신의 학문 세계를 소개하며 학생들이 스스로 진로와 가능성을 넓혀 보도록 돕는 순수 지식 전달 프로그램입니다." },
+  { label: "참가비", a: "참가비는 없습니다. 강연료·교통비 등 제반 비용은 전액 재단이 부담하며 국고지원은 받지 않습니다." },
+  { label: "신청 방법", a: "고등학교 교사가 신청 페이지를 통해 직접 온라인으로 신청합니다. 학교 모집 기간은 8월 18일(화)부터 8월 31일(월)까지이며, 상단 '신청하기' 버튼에서 바로 신청할 수 있습니다." },
+  { label: "참여 인원", a: "학교별 30명 내외 모집을 권장하지만 인원 제한은 없습니다. 강연 주제에 관심 있는 학생이 모일수록 만족도가 높습니다." },
+  { label: "강연 시간·구성", a: "2시간 이내로 진행하며 최소 90분 이상 확보가 필요합니다. 재단 소개 → 연사 소개 → 강연 및 질의응답 → 사진 촬영 순으로 진행됩니다." },
+  { label: "선정 기준", a: "지역 균형, 일정, 신청 동기 등을 종합적으로 고려해 특정 지역에 편중되지 않도록 선정합니다. 연간 학교별 1명, 1회 강연이 가능합니다." },
+  { label: "온라인 강연", a: "가능합니다. 오프라인 학교 방문 외에 Zoom을 통한 온라인 강연도 진행하고 있어 지역과 상관없이 참여할 수 있습니다." },
+  { label: "일정 변경·취소", a: "결과 공지 이후에는 일정 변경이 불가합니다. 강연을 취소할 경우 추후 신청이 제한될 수 있으니 신중하게 신청해 주세요. 부득이한 사정이 있다면 담당자에게 먼저 연락 주시기 바랍니다." },
+  { label: "문의처", a: "한국고등교육재단 지식나눔팀 드림렉쳐 담당자 — 이메일 dreamlecture@kfas.or.kr / 전화 02-6310-7876 으로 문의해 주세요." }
+];
+
+class Component extends DCLogic {
+  state = { i: 0, playing: true, open: 0, chatOpen: false, messages: [{ from: "bot", text: "안녕하세요! 드림렉쳐 방문특강 FAQ 챗봇이에요. 아래 자주 묻는 질문을 눌러보세요." }] };
+
+  componentDidMount() {
+    setTimeout(() => import("./reveal.js").then((m) => m.initReveal()).catch(() => {}), 120);
+    this.tick();
+    const attach = () => {
+      const el = document.getElementById("dl-chat-log");
+      if (!el) return requestAnimationFrame(attach);
+      this._obs = new MutationObserver(() => { el.scrollTop = el.scrollHeight; });
+      this._obs.observe(el, { childList: true, subtree: true });
+    };
+    attach();
+  }
+  scrollLog() {
+    requestAnimationFrame(() => {
+      const el = document.getElementById("dl-chat-log");
+      if (el) el.scrollTop = el.scrollHeight;
+    });
+  }
+  componentWillUnmount() { clearTimeout(this._t); if (this._obs) this._obs.disconnect(); }
+
+  tick() {
+    clearTimeout(this._t);
+    if (!this.state.playing) return;
+    this._t = setTimeout(() => this.go(this.state.i + 1), (this.props.autoplaySeconds ?? 7) * 1000);
+  }
+  go(n) {
+    const i = ((n % Q.length) + Q.length) % Q.length;
+    this.setState({ i }, () => this.tick());
+  }
+
+  renderVals() {
+    const { i, playing, open, chatOpen, messages } = this.state;
+    const c = Q[i];
+    const DUR = (this.props.autoplaySeconds ?? 7) * 1000;
+    return {
+      goBack: (e) => { e.preventDefault(); if (history.length > 1) history.back(); else location.hash = "#home"; },
+      headline: [
+        { value: "1,233회", label: "누적 강연 (2012.11~2025)" },
+        { value: "149,521명", label: "누적 참여 학생" },
+        { value: "903개교", label: "누적 참여 학교" },
+        { value: "633명", label: "참여 학자" }
+      ],
+      notes: [
+        { no: "1", text: "입시 설명회가 아닌 순수 지식 전달을 목적으로 합니다." },
+        { no: "2", text: "재단 장학생 출신 석학·전문가가 자신의 학문 세계를 소개하고 학생들과 직접 토론합니다." },
+        { no: "3", text: "참가비 없이 전액 재단이 비용을 부담합니다 (국고지원 없음)." },
+        { no: "4", text: "오프라인 방문뿐 아니라 온라인(Zoom) 강연도 가능해 지역과 상관없이 참여할 수 있습니다." }
+      ],
+      overview: [
+        { k: "방식", v: "오프라인(학교 방문) 또는 온라인(Zoom) 강연" },
+        { k: "참가 규모", v: "학교별 30인 내외 권장 (인원 제한 없음)" },
+        { k: "소요 시간", v: "2시간 이내 (최소 90분 이상 확보 필수)" },
+        { k: "구성", v: "재단 소개 → 연사 소개 → 강연 및 질의응답 → 사진 촬영" },
+        { k: "참가비", v: "없음 (제반 비용 전액 재단 부담, 국고지원 없음)" }
+      ],
+      diffs: [
+        { text: "대학 입시 설명회·직업인 진로특강이 아닌, 순수 지식 전달 목적의 지식나눔 프로그램입니다." },
+        { text: "재단 장학생 출신 석학·전문가가 학생들과 직접 토론합니다." },
+        { text: "참가비 없이 전액 재단이 비용을 부담합니다." },
+        { text: "온라인(Zoom) 강연도 가능해 지역과 상관없이 참여할 수 있습니다." }
+      ],
+      steps: [
+        { no: "1", title: "학교 신청", when: "8. 18.(화) – 8. 31.(월)", items: [
+          { text: "신청서에서 희망 강연 주제와 가능한 일정을 함께 기입해 주세요." },
+          { text: "고등학교 교사가 신청 페이지를 통해 직접 온라인으로 신청합니다." },
+          { text: "강연 주제에 관심 있는 30명 내외의 학생 모집을 권장합니다." }
+        ]},
+        { no: "2", title: "결과 공지", when: "9월 중 결과 이메일 안내", items: [
+          { text: "지역 균형, 일정, 신청 동기 등을 고려해 최종 선정합니다." },
+          { text: "연간 방문 가능한 강연자 및 강연 횟수는 학교별 1명, 1회입니다." }
+        ]},
+        { no: "3", title: "강연 진행", when: "9. 16.(수) – 12. 18.(금)", items: [
+          { text: "사전 준비: 음향·영상 설비 확인, 자료 세팅, 현수막 설치, 학생 사전 질문 취합" },
+          { text: "결과 공지 이후 일정 변경은 불가하며, 취소 시 추후 신청이 제한될 수 있습니다." },
+          { text: "강연 후 학생 만족도 조사 결과 취합이 필요합니다." }
+        ]}
+      ],
+      survey: [
+        { value: "41명", label: "참여 학자 (2025)" },
+        { value: "54개교", label: "방문 학교 (2025)" },
+        { value: "92.6%", label: "해당 분야 관심·흥미 상승" },
+        { value: "4.9/5.0", label: "교사 만족도 평균" }
+      ],
+      slidePhotos: PHOTOS.slice(0, Q.length).map((src, n) => ({
+        src: src,
+        style: "position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:" + (n === i ? 1 : 0) +
+          "; transform:scale(" + (n === i ? 1 : 1.04) + "); transition:opacity .7s ease, transform 1.4s ease"
+      })),
+      current: {
+        key: "q" + i, quote: c.quote, who: c.who, sub: c.sub,
+        counter: String(i + 1).padStart(2, "0") + " / " + String(Q.length).padStart(2, "0")
+      },
+      barStyle: "height:100%; background:#FFD400; transform-origin:left; animation:bar " + DUR + "ms linear both; animation-play-state:" + (playing ? "running" : "paused"),
+      rail: Q.map((q, n) => ({
+        label: q.who.replace(/\s.*$/, ""),
+        onClick: () => { clearTimeout(this._t); this.setState({ playing: false, i: n }); },
+        style: "font-family:inherit; cursor:pointer; border-radius:999px; padding:10px 18px; font-size:13px; font-weight:800; transition:all .2s; border:1px solid " +
+          (n === i ? "#152452" : "#D6D0C2") + "; background:" + (n === i ? "#152452" : "transparent") + "; color:" + (n === i ? "#fff" : "#8A8578")
+      })),
+      faqs: FAQ.map((f, n) => ({
+        q: f.q, a: f.a,
+        onClick: () => this.setState({ open: open === n ? -1 : n }),
+        iconStyle: "flex:none; font-size:22px; font-weight:400; color:#D9A400; transition:transform .25s; transform:rotate(" + (open === n ? 45 : 0) + "deg)",
+        bodyStyle: "display:grid; grid-template-rows:" + (open === n ? "1fr" : "0fr") + "; transition:grid-template-rows .3s ease; overflow:hidden"
+      })),
+      ticker: STRIP.concat(STRIP, STRIP, STRIP).map((src, n) => ({
+        key: n,
+        src: src,
+        style: "width:300px; height:210px; flex:none; border-radius:14px; object-fit:cover"
+      })),
+      videoOn: !!this.state.videoOn,
+      videoOff: !this.state.videoOn,
+      playVideo: () => this.setState({ videoOn: true }),
+      chatOpen,
+      chatFabIcon: chatOpen ? "×" : "💬",
+      chatFabLabel: chatOpen ? "닫기" : "궁금한 점 물어보기",
+      chatFabStyle: "position:fixed; right:28px; bottom:28px; z-index:80; height:60px; padding:0 26px; border-radius:999px; border:2px solid #152452; background:#FFD400; color:#152452; font-family:inherit; font-size:16px; font-weight:800; letter-spacing:-.01em; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; box-shadow:0 14px 30px -8px rgba(14,25,54,.55)",
+      chatPanelStyle: "position:fixed; right:28px; bottom:100px; z-index:80; width:360px; height:min(520px, calc(100vh - 130px)); border-radius:18px; overflow:hidden; background:#fff; box-shadow:0 24px 60px -20px rgba(14,25,54,.45); display:flex; flex-direction:column; transition:opacity .25s ease, transform .25s ease; opacity:" +
+        (chatOpen ? 1 : 0) + "; transform:translateY(" + (chatOpen ? 0 : 14) + "px); pointer-events:" + (chatOpen ? "auto" : "none"),
+      messages: messages.map((m, n) => ({
+        key: n,
+        text: m.text,
+        rowStyle: "display:flex; justify-content:" + (m.from === "bot" ? "flex-start" : "flex-end"),
+        bubbleStyle: "max-width:82%; font-size:14px; line-height:1.7; padding:13px 16px; border-radius:14px; text-wrap:pretty; " +
+          (m.from === "bot" ? "background:#fff; color:#2A3149; border:1px solid #E6E2D8; border-top-left-radius:4px" : "background:#152452; color:#fff; border-top-right-radius:4px")
+      })),
+      quickReplies: BOT.map((b, n) => ({
+        label: b.label,
+        onClick: () => {
+          this.setState(s => ({
+            messages: s.messages.concat([{ from: "me", text: b.label }, { from: "bot", text: b.a }])
+          }));
+        }
+      })),
+      toggleChat: () => { this.setState(s => ({ chatOpen: !s.chatOpen })); this.scrollLog(); },
+      closeChat: () => this.setState({ chatOpen: false }),
+      playLabel: playing ? "❙❙  자동 재생 멈춤" : "▶  자동 재생",
+      toggle: () => this.setState(s => ({ playing: !s.playing }), () => this.tick()),
+      prev: () => { clearTimeout(this._t); this.setState({ playing: false }); this.go(i - 1); },
+      next: () => { clearTimeout(this._t); this.setState({ playing: false }); this.go(i + 1); }
+    };
+  }
+}
+</script>
+
+
+</body></html>

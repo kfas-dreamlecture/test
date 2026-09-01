@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@1.3.9/dist/web/variable/pretendardvariable.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+  body { margin:0; background:#F4F2EC; font-family:"Pretendard Variable",Pretendard,-apple-system,sans-serif; -webkit-font-smoothing:antialiased; color:#1A2138; }
+  a { color:#152452; text-decoration:none; } a:hover { color:#3D6DB8; }
+  img { display:block; }
+  @keyframes drift { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+  @keyframes slowZoom { from { transform:scale(1); } to { transform:scale(1.08); } }
+</style>
+</helmet>
+
+<div style="width:100%; background:#F4F2EC">
+
+  <div style="position:relative; z-index:50; background:#FFFFFF; border-bottom:1px solid #E3DFD4">
+    <div class="dl-nav" style="max-width:1200px; margin:0 auto; padding:14px 44px; min-height:84px; display:flex; align-items:center; gap:24px; flex-wrap:wrap">
+      <a class="dl-nav-brand" href="#home" style="flex:none; display:flex; align-items:center; gap:14px; white-space:nowrap">
+        <img class="dl-nav-logo" src="assets-min/img-02.png" alt="드림렉쳐" style="height:54px; width:auto; display:block">
+        <span class="dl-nav-title" style="flex:none; color:#152452; font-size:18px; font-weight:800; letter-spacing:-.02em; white-space:nowrap">드림 커넥트</span>
+      </a>
+      <div class="dl-nav-links" style="flex:1; min-width:0; display:flex; align-items:center; gap:22px; flex-wrap:wrap">
+        <a class="dl-nav-a" href="#about" style="color:#3C4358; font-size:14px; font-weight:700; white-space:nowrap" style-hover="color:#3A6FC4">소개</a>
+        <a class="dl-nav-a" href="#schedule" style="color:#3C4358; font-size:14px; font-weight:700; white-space:nowrap" style-hover="color:#3A6FC4">세미나 일정</a>
+        <a class="dl-nav-a" href="#how" style="color:#3C4358; font-size:14px; font-weight:700; white-space:nowrap" style-hover="color:#3A6FC4">진행 구성</a>
+      <a class="dl-nav-back" href="#home" onClick="{{ goBack }}" style="flex:none; display:flex; align-items:center; gap:7px; color:#152452; font-size:13px; font-weight:700; padding:8px 15px; border-radius:999px; border:1px solid #D7D2C4; white-space:nowrap; cursor:pointer" style-hover="background:#152452; color:#fff; border-color:#152452"><span style="font-size:15px; line-height:1">←</span>뒤로</a>
+      <div class="dl-nav-tabs" style="margin-left:auto; flex:none; display:flex; align-items:center; gap:2px; padding:4px; background:#F4F2EC; border:1px solid #E3DFD4; border-radius:999px">
+        <a class="dl-nav-tab" href="#visit" style="color:#5A6178; font-size:13px; font-weight:700; padding:8px 15px; border-radius:999px; white-space:nowrap" style-hover="background:#EDEAE0; color:#152452">방문특강</a>
+        <a class="dl-nav-tab" href="#invite" style="color:#5A6178; font-size:13px; font-weight:700; padding:8px 15px; border-radius:999px; white-space:nowrap" style-hover="background:#EDEAE0; color:#152452">초청특강</a>
+        <a class="dl-nav-tab" href="#hub" style="color:#5A6178; font-size:13px; font-weight:700; padding:8px 15px; border-radius:999px; white-space:nowrap" style-hover="background:#EDEAE0; color:#152452">거점특강</a>
+        <a class="dl-nav-tab" href="#connect" style="background:#152452; color:#fff; font-size:13px; font-weight:800; padding:8px 15px; border-radius:999px; white-space:nowrap">커넥트</a>
+      </div>
+        <!-- 상단 신청 버튼: 마감 시 이 줄을 안내형 버튼으로 교체하세요 -->
+        <a class="dl-nav-apply" href="https://kfas-dreamlecture.github.io/connect/apply.html" target="_blank" rel="noopener" style="background:#152452; color:#fff; font-size:13.5px; font-weight:800; padding:10px 19px; border-radius:999px; white-space:nowrap" style-hover="background:#3A6FC4">세미나 신청</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="top" style="position:relative; overflow:hidden; background:#0E1936">
+    <img src="assets-min/connect/slide-hero.jpg" alt="세미나 발표자료 화면" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.2; animation:slowZoom 30s ease-out both">
+    <sc-for list="{{ heroBgs }}" as="b" hint-placeholder-count="0">
+      <img src="{{ b.src }}" alt="세미나 발표자료 화면" style="{{ b.style }}">
+    </sc-for>
+    <div style="position:absolute; inset:0; background:linear-gradient(105deg,rgba(14,25,54,.96) 0%,rgba(14,25,54,.9) 52%,rgba(14,25,54,.72) 100%)"></div>
+    <div class="dl-hero-pad" style="position:relative; max-width:1200px; margin:0 auto; padding:76px 40px 68px; min-height:420px; display:flex; flex-direction:column; justify-content:flex-start; gap:26px">
+      <span style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11.5px; font-weight:500; letter-spacing:.2em; color:rgba(255,255,255,.5)">DREAM LECTURE / 04</span>
+      <h1 class="dl-h1" style="margin:0; font-size:clamp(48px,6.2vw,92px); line-height:1.0; letter-spacing:-.05em; font-weight:800; color:#fff; white-space:nowrap">드림 커넥트</h1>
+      <p class="dl-h1sub" style="margin:0; font-size:clamp(20px,2.2vw,28px); font-weight:700; letter-spacing:-.035em; color:#7AA7EB">“화면 너머, 더 가까이!”</p>
+      <p style="margin:0; max-width:600px; font-size:16.5px; line-height:1.9; color:rgba(255,255,255,.72); text-wrap:pretty">한국고등교육재단 장학생이 직접 들려주는 전공·진로 탐색 세미나입니다. 대학에서 무엇을 배우고 어떻게 그 길을 골랐는지, 가장 가까운 선배에게 직접 묻는 1시간.</p>
+      <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap">
+        <span class="dl-chip" style="font-size:13px; font-weight:700; color:#fff; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); border-radius:999px; padding:10px 18px">월 1회</span>
+        <span class="dl-chip" style="font-size:13px; font-weight:700; color:#fff; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); border-radius:999px; padding:10px 18px">다양한 전공</span>
+        <span class="dl-chip" style="font-size:13px; font-weight:700; color:#fff; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); border-radius:999px; padding:10px 18px">온라인</span>
+      </div>
+    </div>
+  </div>
+
+
+  <div style="background:#152452; color:#fff">
+    <div class="dl-band dl-g4" style="max-width:1200px; margin:0 auto; padding:44px 40px; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:24px">
+      <div style="display:flex; flex-direction:column; gap:12px; border-left:2px solid rgba(122,167,235,.5); padding-left:22px">
+        <span class="dl-stat" style="font-size:38px; font-weight:800; letter-spacing:-.035em; line-height:1; color:#7AA7EB; font-variant-numeric:tabular-nums">2025년</span>
+        <span style="font-size:13px; font-weight:600; color:rgba(255,255,255,.62)">첫 개최</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px; border-left:2px solid rgba(122,167,235,.5); padding-left:22px">
+        <span class="dl-stat" style="font-size:38px; font-weight:800; letter-spacing:-.035em; line-height:1; color:#7AA7EB; font-variant-numeric:tabular-nums">전국</span>
+        <span style="font-size:13px; font-weight:600; color:rgba(255,255,255,.62)">고등학생 누구나</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px; border-left:2px solid rgba(122,167,235,.5); padding-left:22px">
+        <span class="dl-stat" style="font-size:38px; font-weight:800; letter-spacing:-.035em; line-height:1; color:#7AA7EB; font-variant-numeric:tabular-nums">2인</span>
+        <span style="font-size:13px; font-weight:600; color:rgba(255,255,255,.62)">이공계 + 인문사회 멘토</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px; border-left:2px solid rgba(122,167,235,.5); padding-left:22px">
+        <span class="dl-stat" style="font-size:38px; font-weight:800; letter-spacing:-.035em; line-height:1; color:#7AA7EB; font-variant-numeric:tabular-nums">1시간</span>
+        <span style="font-size:13px; font-weight:600; color:rgba(255,255,255,.62)">세미나 진행</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="dl-sec" id="intro" style="max-width:1200px; margin:0 auto; padding:104px 40px 0; display:flex; flex-direction:column; gap:22px">
+    <div style="display:flex; flex-direction:column; gap:22px">
+      <span style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11.5px; font-weight:500; letter-spacing:.18em; color:#3D6DB8">ABOUT THE PROGRAM</span>
+      <h2 class="dl-h2" style="margin:0; font-size:40px; line-height:1.28; letter-spacing:-.035em; font-weight:800">가장 가까운 선배가<br>들려주는 이야기</h2>
+      <p style="margin:0; max-width:620px; font-size:16px; line-height:1.85; color:#4A5169; text-wrap:pretty">“드림 커넥트”는 현재 대학에 재학 중인 한국고등교육재단 장학생이 자신의 전공과 진로 선택 과정을 직접 들려주는 온라인 세미나입니다. 강의를 듣는 자리가 아니라, 같은 고민을 먼저 지나온 선배에게 묻는 자리입니다.</p>
+            <p style="margin:0; max-width:620px; font-size:16px; line-height:1.85; color:#4A5169; text-wrap:pretty">이공계와 인문사회 멘토가 함께 참여해 서로 다른 길을 보여주고, 질문 시간을 통해 학생들이 자신의 관심을 구체적인 진로로 옮겨 보도록 돕습니다. 전국의 고등학생 누구나 신청해 참여할 수 있습니다.</p>
+    </div>
+  </div>
+
+  <div class="dl-sec" id="about" style="max-width:1200px; margin:0 auto; padding:104px 40px 0; display:flex; flex-direction:column; gap:36px">
+    <div style="display:flex; flex-direction:column; gap:14px">
+      <span style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11.5px; font-weight:500; letter-spacing:.18em; color:#3D6DB8">OVERVIEW</span>
+      <h2 class="dl-h2" style="margin:0; font-size:40px; line-height:1.28; letter-spacing:-.035em; font-weight:800">프로그램 개요</h2>
+    </div>
+    <div class="dl-g3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px">
+      <div style="background:#fff; border-radius:3px; overflow:hidden; border:1px solid #E4E0D5">
+        <div style="height:170px; background:#152452; display:flex; flex-direction:column; justify-content:center; gap:8px; padding:0 30px"><span style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11px; font-weight:500; letter-spacing:.18em; color:#7AA7EB">WHO</span><span class="dl-h3" style="font-size:30px; font-weight:800; letter-spacing:-.035em; color:#fff; line-height:1.2">전국<br>어디서나</span></div>
+        <div class="dl-card-pad" style="padding:26px 26px 30px; display:flex; flex-direction:column; gap:10px">
+          <h3 style="margin:0; font-size:19px; font-weight:800; letter-spacing:-.025em">드림렉쳐 참여 학생</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75; color:#5A6178; text-wrap:pretty">온라인으로 진행해 지역과 상관없이 누구나 참석할 수 있습니다.</p>
+        </div>
+      </div>
+      <div style="background:#fff; border-radius:3px; overflow:hidden; border:1px solid #E4E0D5">
+        <div style="height:170px; background:#1E3468; display:flex; flex-direction:column; justify-content:center; gap:8px; padding:0 30px"><span style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11px; font-weight:500; letter-spacing:.18em; color:#7AA7EB">MENTORS</span><span class="dl-h3" style="font-size:30px; font-weight:800; letter-spacing:-.035em; color:#fff; line-height:1.2">다양한 분야의<br>멘토에게</span></div>
+        <div class="dl-card-pad" style="padding:26px 26px 30px; display:flex; flex-direction:column; gap:10px">
+          <h3 style="margin:0; font-size:19px; font-weight:800; letter-spacing:-.025em">장학생 멘토 2인</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75; color:#5A6178; text-wrap:pretty">매 회 이공계와 인문사회 멘토가 함께해 서로 다른 전공과 진로의 길을 보여줍니다.</p>
+        </div>
+      </div>
+      <div style="background:#fff; border-radius:3px; overflow:hidden; border:1px solid #E4E0D5">
+        <div style="height:170px; background:#3D6DB8; display:flex; flex-direction:column; justify-content:center; gap:8px; padding:0 30px"><span style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11px; font-weight:500; letter-spacing:.18em; color:rgba(255,255,255,.75)">Q&amp;A</span><span class="dl-h3" style="font-size:30px; font-weight:800; letter-spacing:-.035em; color:#fff; line-height:1.2">궁금한 질문은<br>무엇이든지</span></div>
+        <div class="dl-card-pad" style="padding:26px 26px 30px; display:flex; flex-direction:column; gap:10px">
+          <h3 style="margin:0; font-size:19px; font-weight:800; letter-spacing:-.025em">자유로운 질문 시간</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.75; color:#5A6178; text-wrap:pretty">전공 선택, 공부법, 대학 생활까지 멘토에게 직접 물어볼 수 있는 시간이 마련됩니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="dl-sec dl-g2" style="max-width:1200px; margin:0 auto; padding:36px 40px 0; display:grid; grid-template-columns:1.05fr .95fr; gap:20px; align-items:stretch">
+    <div class="dl-kv-box" style="background:#fff; border:1px solid #E4E0D5; border-radius:3px; padding:14px 34px 18px">
+      <div class="dl-kv" style="display:grid; grid-template-columns:110px 1fr; gap:24px; align-items:baseline; padding:22px 0">
+        <span style="font-size:14px; font-weight:800; letter-spacing:-.02em; color:#152452">방식</span>
+        <span style="font-size:14.5px; line-height:1.7; color:#5A6178; text-wrap:pretty">온라인 실시간 화상 세미나</span>
+      </div>
+      <div class="dl-kv" style="display:grid; grid-template-columns:110px 1fr; gap:24px; align-items:baseline; padding:22px 0; border-top:1px solid #EEEBE2">
+        <span style="font-size:14px; font-weight:800; letter-spacing:-.02em; color:#152452">대상</span>
+        <span style="font-size:14.5px; line-height:1.7; color:#5A6178; text-wrap:pretty">전국 모든 고등학생</span>
+      </div>
+      <div class="dl-kv" style="display:grid; grid-template-columns:110px 1fr; gap:24px; align-items:baseline; padding:22px 0; border-top:1px solid #EEEBE2">
+        <span style="font-size:14px; font-weight:800; letter-spacing:-.02em; color:#152452">일정</span>
+        <span style="font-size:14.5px; line-height:1.7; color:#5A6178; text-wrap:pretty">학기 중 월 1회 · 상반기 4~6월, 하반기 9~11월</span>
+      </div>
+      <div class="dl-kv" style="display:grid; grid-template-columns:110px 1fr; gap:24px; align-items:baseline; padding:22px 0; border-top:1px solid #EEEBE2">
+        <span style="font-size:14px; font-weight:800; letter-spacing:-.02em; color:#152452">멘토</span>
+        <span style="font-size:14.5px; line-height:1.7; color:#5A6178; text-wrap:pretty">다양한 분야의 멘토, 재단 장학생</span>
+      </div>
+      <div class="dl-kv" style="display:grid; grid-template-columns:110px 1fr; gap:24px; align-items:baseline; padding:22px 0; border-top:1px solid #EEEBE2">
+        <span style="font-size:14px; font-weight:800; letter-spacing:-.02em; color:#152452">참가비</span>
+        <span style="font-size:14.5px; line-height:1.7; color:#5A6178; text-wrap:pretty">없음</span>
+      </div>
+    </div>
+    <div class="dl-panel" style="background:#152452; border-radius:3px; padding:40px 40px 44px; display:flex; flex-direction:column; gap:22px">
+      <h3 style="margin:0; font-size:22px; font-weight:800; letter-spacing:-.03em; color:#fff">이런 점이 다릅니다</h3>
+      <div style="display:flex; flex-direction:column; gap:16px">
+        <div style="display:grid; grid-template-columns:8px 1fr; gap:14px; align-items:start">
+          <span style="width:6px; height:6px; margin-top:8px; border-radius:999px; background:#7AA7EB"></span>
+          <span style="font-size:14.5px; line-height:1.75; color:rgba(255,255,255,.8); text-wrap:pretty">교수가 아니라 대학생 선배가 이야기합니다. 몇 년 전 같은 입시를 치른 재단 장학생이 직접 전공을 소개합니다.</span>
+        </div>
+        <div style="display:grid; grid-template-columns:8px 1fr; gap:14px; align-items:start">
+          <span style="width:6px; height:6px; margin-top:8px; border-radius:999px; background:#7AA7EB"></span>
+          <span style="font-size:14.5px; line-height:1.75; color:rgba(255,255,255,.8); text-wrap:pretty">매 회 이공계와 인문사회 전공을 함께 다룹니다. 두 분야를 한자리에서 비교해 볼 수 있습니다.</span>
+        </div>
+        <div style="display:grid; grid-template-columns:8px 1fr; gap:14px; align-items:start">
+          <span style="width:6px; height:6px; margin-top:8px; border-radius:999px; background:#7AA7EB"></span>
+          <span style="font-size:14.5px; line-height:1.75; color:rgba(255,255,255,.8); text-wrap:pretty">전체 시간의 3분의 1을 질의응답에 씁니다. 입시부터 공부 방법, 대학 생활까지 직접 물을 수 있습니다.</span>
+        </div>
+        <div style="display:grid; grid-template-columns:8px 1fr; gap:14px; align-items:start">
+          <span style="width:6px; height:6px; margin-top:8px; border-radius:999px; background:#7AA7EB"></span>
+          <span style="font-size:14.5px; line-height:1.75; color:rgba(255,255,255,.8); text-wrap:pretty">온라인으로 진행되어 지역과 상관없이 참여할 수 있습니다.</span>
+        </div>
+        <div style="display:grid; grid-template-columns:8px 1fr; gap:14px; align-items:start">
+          <span style="width:6px; height:6px; margin-top:8px; border-radius:999px; background:#7AA7EB"></span>
+          <span style="font-size:14.5px; line-height:1.75; color:rgba(255,255,255,.8); text-wrap:pretty">일회성 강연이 아닙니다. 거점특강·방문특강에서 시작된 관심을 이어 가는 사후 프로그램입니다.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dl-sec" style="max-width:1200px; margin:0 auto; padding:56px 40px 0; display:flex; flex-direction:column; align-items:center; gap:14px">
+    <a class="dl-cta" href="https://kfas-dreamlecture.github.io/connect/apply.html" target="_blank" rel="noopener" style="background:#152452; color:#fff; font-size:15.5px; font-weight:800; padding:17px 36px; border-radius:999px" style-hover="background:#7AA7EB; color:#152452">하반기 세미나 신청하기 →</a>
+    <span style="font-size:13px; color:#8A8578; font-weight:500">※ 신청 링크는 각 세미나 2주 전 드림렉쳐 채널을 통해 공지됩니다</span>
+  </div>
+
+
+  <div class="dl-sec" id="schedule" style="max-width:1200px; margin:0 auto; padding:104px 40px 0; display:flex; flex-direction:column; gap:32px">
+    <div style="display:flex; flex-direction:column; gap:14px; max-width:720px">
+      <span style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11.5px; font-weight:500; letter-spacing:.18em; color:#3D6DB8">2026 SCHEDULE</span>
+      <h2 class="dl-h2" style="margin:0; font-size:40px; line-height:1.28; letter-spacing:-.035em; font-weight:800">세미나 일정</h2>
+      <p style="margin:0; font-size:15.5px; line-height:1.8; color:#4A5169">상반기 3회, 하반기 3회로 연간 총 6회 운영됩니다. 매 회 신청 가능한 주제와 전공이 공개됩니다.</p>
+    </div>
+    <div class="dl-g3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px">
+      <sc-for list="{{ sessions }}" as="s" hint-placeholder-count="6">
+        <div class="dl-card-pad" style="background:#fff; border-radius:3px; padding:28px 30px 30px; display:flex; flex-direction:column; gap:18px; border:1px solid #E4E0D5">
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; height:38px">
+            <div style="display:flex; align-items:baseline; gap:8px">
+              <span style="font-size:13px; font-weight:800; letter-spacing:.14em; color:#3D6DB8">{{ s.month }}</span>
+              <span style="font-size:34px; font-weight:800; letter-spacing:-.04em; color:#152452; line-height:1">{{ s.day }}</span>
+            </div>
+            <span style="{{ s.badgeStyle }}">{{ s.status }}</span>
+          </div>
+          <span style="font-size:13.5px; font-weight:700; color:#4A5169; white-space:nowrap">{{ s.when }}</span>
+          <div style="display:flex; flex-direction:column; gap:10px; padding-top:16px; border-top:1px solid #EEEBE2">
+            <div style="display:flex; gap:10px; align-items:baseline; min-height:44px">
+              <span style="flex:none; width:56px; font-size:12px; font-weight:800; color:#3D6DB8">이공계</span>
+              <span style="font-size:14.5px; font-weight:700; line-height:1.5; color:#152452">{{ s.science }}</span>
+            </div>
+            <div style="display:flex; gap:10px; align-items:baseline; min-height:44px">
+              <span style="flex:none; width:56px; font-size:12px; font-weight:800; color:#3D6DB8">인문사회</span>
+              <span style="font-size:14.5px; font-weight:700; line-height:1.5; color:#152452">{{ s.humanities }}</span>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <div class="dl-band-y dl-mt" id="how" style="margin-top:104px; background:#EBE7DD; padding:96px 0">
+    <div class="dl-padx" style="max-width:1200px; margin:0 auto; padding:0 40px; display:flex; flex-direction:column; gap:36px">
+      <div style="display:flex; flex-direction:column; gap:14px; max-width:720px">
+        <span style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11.5px; font-weight:500; letter-spacing:.18em; color:#3D6DB8">SESSION STRUCTURE</span>
+        <h2 class="dl-h2" style="margin:0; font-size:40px; line-height:1.28; letter-spacing:-.035em; font-weight:800">1시간, 이렇게 진행됩니다</h2>
+        <p style="margin:0; font-size:15.5px; line-height:1.8; color:#4A5169">멘토 소개부터 깊이 있는 Q&amp;A까지, 알차게 구성된 1시간 세미나 흐름입니다.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <sc-for list="{{ steps }}" as="s" hint-placeholder-count="5">
+          <div class="dl-kv dl-panel" style="background:#fff; border-radius:3px; padding:26px 30px; display:grid; grid-template-columns:44px 200px 1fr; gap:24px; align-items:center; border:1px solid #E4E0D5">
+            <span style="width:34px; height:34px; border-radius:50%; background:#152452; color:#7AA7EB; font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center">{{ s.no }}</span>
+            <h3 style="margin:0; font-size:19px; font-weight:800; letter-spacing:-.03em; color:#152452">{{ s.title }}</h3>
+            <p style="margin:0; font-size:14.5px; line-height:1.75; color:#4A5169; text-wrap:pretty">{{ s.text }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <div class="dl-sec" style="max-width:1200px; margin:0 auto; padding:104px 40px 0; display:flex; flex-direction:column; gap:14px">
+    <div style="display:flex; flex-direction:column; gap:14px">
+      <span style="font-family:'JetBrains Mono',ui-monospace,monospace; font-size:11.5px; font-weight:500; letter-spacing:.18em; color:#3D6DB8">MATERIALS</span>
+      <h2 class="dl-h2" style="margin:0; font-size:40px; line-height:1.28; letter-spacing:-.035em; font-weight:800">세미나 발표자료</h2>
+    </div>
+  </div>
+
+  <div style="background:#152452; padding:44px 0; margin-top:28px; overflow:hidden">
+    <div style="display:flex; gap:16px; width:max-content; animation:drift 80s linear infinite" style-hover="animation-play-state:paused">
+      <sc-for list="{{ slideTicker }}" as="t" hint-placeholder-count="12">
+        <img class="dl-marquee-img2" src="{{ t.src }}" alt="세미나 발표자료" style="width:330px; height:auto; flex:none; border-radius:6px; border:1px solid rgba(255,255,255,.14)">
+      </sc-for>
+    </div>
+  </div>
+
+  <div class="dl-spacer" style="height:96px"></div>
+
+  <dc-import data-no-reveal="1" name="Chatbot" accent="#7AA7EB" hint-size="0px,0px"></dc-import>
+
+  <div class="dl-foot-pad" style="background:#0E1936; color:rgba(255,255,255,.55); padding:52px 0">
+    <div class="dl-padx" style="max-width:1200px; margin:0 auto; padding:0 40px; display:flex; justify-content:space-between; align-items:flex-start; gap:40px; flex-wrap:wrap">
+      <div style="display:flex; flex-direction:column; gap:16px">
+        <a href="https://www.kfas.or.kr/" target="_blank" rel="noopener" style="align-self:flex-start; opacity:.85" style-hover="opacity:1">
+          <img class="dl-foot-logo" src="assets-min/img-05.png" alt="한국고등교육재단 홈페이지" style="width:232px; height:100px; object-fit:contain; object-position:left center; filter:brightness(0) invert(1); display:block">
+        </a>
+        <p style="margin:0; font-size:13.5px; line-height:1.9">드림 커넥트 온라인 진로 세미나 · 지식나눔팀<br>전화 02-6310-7876 · <a href="mailto:dreamlecture@kfas.or.kr" style="color:rgba(255,255,255,.75)">dreamlecture@kfas.or.kr</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{}">
+const HERO_FILES = ["assets-min/connect/slide-hero.jpg","assets-min/connect/slide-04.jpg","assets-min/connect/slide-02.jpg","assets-min/connect/slide-06.jpg","assets-min/connect/slide-07.jpg","assets-min/connect/slide-08.jpg","assets-min/connect/slide-09.jpg","assets-min/connect/slide-10.jpg","assets-min/connect/slide-11.jpg","assets-min/connect/slide-03.jpg","assets-min/connect/slide-05.jpg"];
+const HERO_BGS = HERO_FILES;
+
+const SESSIONS = [
+  { month: "APR", day: "14", weekday: "화요일", status: "종료", time: "19:00 — 20:00", science: "심리학", humanities: "국사학" },
+  { month: "MAY", day: "12", weekday: "화요일", status: "종료", time: "19:00 — 20:00", science: "화학", humanities: "정치외교학" },
+  { month: "JUN", day: "13", weekday: "토요일", status: "종료", time: "14:00 — 15:00", science: "전자공학 (AI)", humanities: "국제학" },
+  { month: "SEP", day: "15", weekday: "화요일", status: "신청 중", time: "19:00 — 20:00", science: "기계공학 (모빌리티)", humanities: "국사학" },
+  { month: "OCT", day: "24", weekday: "토요일", status: "하반기 예정", time: "14:00 — 15:00", science: "글로벌바이오메디컬공학", humanities: "철학" },
+  { month: "NOV", day: "14", weekday: "토요일", status: "하반기 예정", time: "14:00 — 15:00", science: "바이오 및 뇌공학", humanities: "법학" }
+];
+
+const FEATURES = [
+  { label: "ONLINE", title: "온라인 실시간", text: "집에서 편하게 참여하는 온라인 진로 세미나. Zoom을 통해 전국 어디서나 참여 가능합니다." },
+  { label: "MENTOR", title: "KFAS 장학생 멘토", text: "국내 유수 대학에 재학 중인 재단 장학생들이 직접 전공과 진로 이야기를 들려줍니다." },
+  { label: "Q&A", title: "자유로운 Q&A", text: "입시, 공부법, 대학 생활까지 무엇이든 물어볼 수 있는 질의응답 시간이 충분히 마련됩니다." },
+  { label: "BALANCE", title: "이공계 + 인문사회", text: "매 회마다 이공계 1명, 인문사회계 1명의 멘토가 함께해 폭넓은 진로 탐색이 가능합니다." }
+];
+
+const STEPS = [
+  { no: "1", title: "장학생 소개", text: "멘토가 자신을 소개하며 세미나를 엽니다. 어떤 과정을 거쳐 지금의 학과를 선택했는지 간략히 들려줍니다." },
+  { no: "2", title: "전공 소개", text: "이공계 · 인문사회 멘토 순서로 전공의 특징, 학과 커리큘럼, 실제 배우는 것들을 소개합니다. 고등학생이 오해하기 쉬운 점도 함께 짚습니다." },
+  { no: "3", title: "중간 Q&A", text: "전공 소개에서 궁금했던 점을 그 자리에서 묻고 답하는 시간을 가집니다." },
+  { no: "4", title: "진로 이야기", text: "졸업 후 실제 진로 스펙트럼, 멘토 본인의 커리어 계획(IDP), 고등학생에게 해주고 싶은 진로 조언을 들을 수 있습니다." },
+  { no: "5", title: "종합 Q&A", text: "입시, 공부법, 대학 생활 등 무엇이든 자유롭게 물을 수 있습니다. 경험에서 나온 솔직한 답변을 들을 수 있습니다." }
+];
+
+const FAQ = [
+  { q: "참가비가 있나요?", a: "드림 커넥트 세미나는 무료로 운영됩니다. 한국고등교육재단이 전액 지원합니다." },
+  { q: "어떤 플랫폼으로 진행되나요?", a: "Zoom을 통해 온라인으로 진행됩니다. 신청 완료 후 세미나 시작 전에 참여 링크가 안내됩니다." },
+  { q: "전공 분야가 내 관심사와 다르면 신청할 수 없나요?", a: "아닙니다! 해당 전공에 관심이 없어도 진로 탐색 자체에 관심이 있다면 충분히 유익한 시간이 됩니다. 실제 장학생이 들려주는 대학 생활과 진로 이야기는 어떤 전공을 꿈꾸더라도 도움이 됩니다." },
+  { q: "Q&A에서 어떤 질문을 해도 되나요?", a: "네, 자유롭게 질문하세요. 학과 선택, 공부 방법, 생활기록부, 대학 생활, 입시 전략, 멘탈 관리까지 무엇이든 환영합니다. 실제 참여 학생들이 가장 만족한 부분이 바로 솔직한 Q&A 시간이었습니다." },
+  { q: "녹화본을 나중에 볼 수 있나요?", a: "녹화본 제공 여부는 별도로 안내됩니다. 가능하면 실시간으로 참여하시는 것을 권장드립니다. 직접 질문을 통해 얻는 경험이 훨씬 크기 때문입니다." }
+];
+
+class Component extends DCLogic {
+  state = { open: 0, bg: 0 };
+  componentDidMount() {
+    setTimeout(() => import("./reveal.js").then((m) => m.initReveal()).catch(() => {}), 120);
+    this._bgTimer = setInterval(() => {
+      this.setState((s) => ({ bg: (s.bg + 1) % HERO_BGS.length }));
+    }, 5200);
+  }
+  componentWillUnmount() { clearInterval(this._bgTimer); }
+  renderVals() {
+    const open = this.state.open;
+    const bg = this.state.bg;
+    const SLIDES = ["slide-02","slide-03","slide-04","slide-12","slide-05","slide-06","slide-07","slide-08","slide-09","slide-10","slide-11"];
+    return {
+      slideTicker: SLIDES.concat(SLIDES).map((n, i) => ({ key: i, src: "assets-min/connect/" + n + ".jpg" })),
+      goBack: (e) => { e.preventDefault(); if (history.length > 1) history.back(); else location.hash = "#home"; },
+      heroBgs: HERO_BGS.map((src, n) => ({
+        key: n,
+        src: src,
+        style: "position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:opacity 1.2s ease; opacity:" +
+          (n === bg ? ".2" : "0") + "; animation:slowZoom 30s ease-out both"
+      })),
+      features: FEATURES.map((f, n) => ({ key: n, label: f.label, title: f.title, text: f.text })),
+      steps: STEPS.map((s) => ({ key: s.no, no: s.no, title: s.title, text: s.text })),
+      sessions: SESSIONS.map((s, n) => ({
+        key: n, month: s.month, day: s.day, weekday: s.weekday, status: s.status,
+        time: s.time, science: s.science, humanities: s.humanities,
+        when: s.weekday + " · " + s.time,
+        badgeStyle: "flex:none; font-size:11.5px; font-weight:800; padding:6px 12px; border-radius:999px; " +
+          (s.status === "신청 중"
+            ? "background:#7AA7EB; color:#152452"
+            : s.status === "종료"
+              ? "background:#EFECE3; color:#9A9484"
+              : "background:#152452; color:#7AA7EB")
+      })),
+      faqs: FAQ.map((f, n) => ({
+        key: n, q: f.q, a: f.a,
+        onClick: () => this.setState({ open: open === n ? -1 : n }),
+        iconStyle: "flex:none; font-size:22px; font-weight:400; color:#3D6DB8; transition:transform .25s; transform:rotate(" + (open === n ? 45 : 0) + "deg)",
+        bodyStyle: "display:grid; grid-template-rows:" + (open === n ? "1fr" : "0fr") + "; transition:grid-template-rows .3s ease; overflow:hidden"
+      }))
+    };
+  }
+}
+</script>
+</body></html>

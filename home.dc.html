@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@1.3.9/dist/web/variable/pretendardvariable.css">
+<style>
+  body { margin:0; background:#F4F2EC; font-family:"Pretendard Variable",Pretendard,-apple-system,sans-serif; -webkit-font-smoothing:antialiased; color:#1A2138; }
+  a { color:#152452; text-decoration:none; } a:hover { color:#D9A400; }
+  img { display:block; }
+  @keyframes slowZoom { from { transform:scale(1.02); } to { transform:scale(1.1); } }
+  @keyframes lineIn { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:none; } }
+  @keyframes drift { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+</style>
+<style>
+/* ===== MOBILE ONLY (<=768px). Desktop layout untouched. ===== */
+@media (max-width: 768px) {
+  .dl-wrap { padding-left: 20px !important; padding-right: 20px !important; }
+
+  /* header */
+  .dl-hd { padding: 0 16px !important; height: 62px !important; gap: 12px !important; }
+  .dl-hd-logo { height: 30px !important; }
+  .dl-hd-div { height: 26px !important; }
+  .dl-hd-b1 { font-size: 14.5px !important; }
+  .dl-hd-b2 { font-size: 9.5px !important; letter-spacing: .02em !important; }
+  .dl-hd-mark { height: 32px !important; }
+
+  /* hero */
+  .dl-hero { grid-template-columns: 1fr !important; padding: 48px 20px 44px !important; gap: 38px !important; align-items: start !important; }
+  .dl-hero-eyebrow { font-size: 10.5px !important; letter-spacing: .14em !important; }
+  .dl-hero-h1 { font-size: clamp(28px, 8.4vw, 38px) !important; line-height: 1.16 !important; letter-spacing: -.04em !important; }
+  .dl-pay { font-size: 13.5px !important; letter-spacing: .14em !important; }
+  .dl-tick { font-size: 15px !important; line-height: 1.55 !important; }
+  .dl-hero-p { font-size: 14.5px !important; line-height: 1.78 !important; }
+  .dl-idx-row { padding-top: 15px !important; padding-bottom: 15px !important; gap: 12px !important; grid-template-columns: 28px minmax(0,1fr) 16px !important; }
+  .dl-idx-title { font-size: 18px !important; }
+  .dl-idx-meta { font-size: 11.5px !important; }
+
+  /* about */
+  .dl-sec-about { padding-top: 64px !important; }
+  .dl-about-grid { grid-template-columns: 1fr !important; gap: 34px !important; }
+  .dl-h2-40 { font-size: 27px !important; line-height: 1.32 !important; }
+  .dl-stats { gap: 18px !important; }
+  .dl-stat-num { font-size: 21px !important; }
+  .dl-about-img { height: 296px !important; }
+  .dl-about-img-a { inset: 0 44px 54px 0 !important; }
+  .dl-about-img-b { width: 148px !important; height: 106px !important; border-width: 6px !important; }
+
+  /* by the numbers */
+  .dl-sec-num { padding-top: 64px !important; }
+  .dl-num-head { gap: 26px !important; }
+  .dl-h2-46 { font-size: 29px !important; }
+  .dl-num-grid { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+  .dl-num-cell { padding: 22px 16px 20px !important; gap: 8px !important; }
+  .dl-num-big { font-size: 38px !important; }
+
+  /* strip */
+  .dl-sec-strip { padding-top: 64px !important; gap: 20px !important; }
+  .dl-h2-34 { font-size: 24px !important; }
+  .dl-strip-img { width: 188px !important; height: 130px !important; }
+
+  /* footer */
+  .dl-foot { padding: 36px 0 82px !important; margin-top: 64px !important; }
+  .dl-foot-logo { width: 168px !important; height: 72px !important; }
+}
+</style>
+</helmet>
+
+<div style="width:100%; background:#F4F2EC; overflow-x:hidden">
+
+  <div style="position:relative; z-index:50; background:#FFFFFF; border-bottom:1px solid #E3DFD4">
+    <div class="dl-hd" style="max-width:1400px; margin:0 auto; padding:0 44px; height:84px; display:flex; align-items:center; gap:40px">
+      <div style="display:flex; align-items:center; gap:18px">
+        <a href="https://www.kfas.or.kr/" target="_blank" rel="noopener" style="display:block" style-hover="opacity:.7">
+          <img class="dl-hd-logo" src="assets-min/kfas-logo.png" alt="한국고등교육재단" style="height:48px; width:auto; display:block">
+        </a>
+        <span class="dl-hd-div" style="width:1px; height:42px; background:#D7D2C4; display:block"></span>
+        <a href="#top" style="display:flex; flex-direction:column; gap:5px">
+          <span class="dl-hd-b1" style="color:#152452; font-size:19px; font-weight:800; letter-spacing:-.025em; line-height:1">드림렉쳐</span>
+          <span class="dl-hd-b2" style="color:#8A8474; font-size:11.5px; font-weight:600; letter-spacing:.06em; line-height:1; white-space:nowrap">지식나눔 프로그램</span>
+        </a>
+      </div>
+      <div style="flex:1; display:flex; align-items:center; gap:30px">
+        <a href="#top" style="margin-left:auto; display:block" style-hover="opacity:.7">
+          <img class="dl-hd-mark" src="assets-min/img-02.png" alt="드림렉쳐" style="height:52px; width:auto; display:block">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="top" style="position:relative; overflow:hidden; background:#0E1936">
+    <sc-for list="{{ heroLayers }}" as="h" hint-placeholder-count="1">
+      <img src="{{ h.src }}" alt="드림렉쳐 강연 현장" style="{{ h.style }}">
+    </sc-for>
+    <div style="position:absolute; inset:0; background:linear-gradient(100deg,rgba(14,25,54,.96) 0%,rgba(14,25,54,.86) 46%,rgba(14,25,54,.52) 100%)"></div>
+
+    <div class="dl-hero" style="position:relative; max-width:1400px; margin:0 auto; padding:88px 40px 84px; display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr); gap:64px; align-items:end">
+      <div style="display:flex; flex-direction:column; gap:24px; min-width:0">
+        <span class="dl-hero-eyebrow" style="font-size:12.5px; font-weight:800; letter-spacing:.22em; color:rgba(255,255,255,.5)">한국고등교육재단 · 1974년부터</span>
+        <h1 class="dl-hero-h1" style="margin:0; font-size:clamp(48px,5.8vw,88px); line-height:1; letter-spacing:-.055em; font-weight:800; color:#fff">한 세대의 배움이,<br>다음 세대의 <span style="{{ heroAccentStyle }}">꿈</span>으로</h1>
+        <div style="display:flex; flex-direction:column; gap:10px">
+          <span class="dl-pay" style="{{ payStyle }}">PAY IT FORWARD</span>
+          <div style="min-height:62px; display:flex; align-items:center">
+            <span class="dl-tick" key="{{ tick.key }}" style="{{ tick.style }}">{{ tick.text }}</span>
+          </div>
+        </div>
+        <p class="dl-hero-p" style="margin:0; max-width:600px; font-size:16.5px; line-height:1.9; color:rgba(255,255,255,.7); text-wrap:pretty">드림렉쳐는 재단의 지원을 받은 학자와 전문가가 전국의 청소년을 만나는 지식나눔 프로그램입니다. 2012년 첫 강연을 시작으로 학교를 찾아가고, 재단으로 초청하고, 지역 거점에서 한 학기를 함께하며, 장학생이 후배 세대를 만나는 자리로 이어오고 있습니다.</p>
+      </div>
+
+      <div class="dl-hero-idx" style="display:flex; flex-direction:column; border-top:1px solid rgba(255,255,255,.16); min-width:0">
+        <sc-for list="{{ heroIndex }}" as="x" hint-placeholder-count="4">
+          <a class="dl-idx-row" href="{{ x.href }}" onMouseEnter="{{ x.enter }}" onFocus="{{ x.enter }}" style="{{ x.rowStyle }}">
+            <span style="{{ x.numStyle }}">{{ x.num }}</span>
+            <span style="display:flex; flex-direction:column; gap:5px; min-width:0">
+              <span class="dl-idx-title" style="{{ x.titleStyle }}">{{ x.title }}</span>
+              <span class="dl-idx-meta" style="{{ x.metaStyle }}">{{ x.slogan }}</span>
+            </span>
+            <span style="{{ x.arrowStyle }}">↗</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <div class="dl-sec-about" style="background:#F4F2EC; padding:104px 0 0">
+    <div class="dl-wrap dl-about-grid" style="max-width:1200px; margin:0 auto; padding:0 40px; display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center">
+      <div style="display:flex; flex-direction:column; gap:22px; min-width:0">
+        <span style="font-size:12px; font-weight:800; letter-spacing:.2em; color:#D9A400">ABOUT KFAS</span>
+        <h2 class="dl-h2-40" style="margin:0; font-size:40px; line-height:1.28; letter-spacing:-.035em; font-weight:800">50년간 이어온<br>지식에 대한 투자</h2>
+        <p style="margin:0; font-size:16px; line-height:1.85; color:#4A5169; text-wrap:pretty">故 최종현 SK그룹 선대회장이 학문과 국가발전에 이바지할 세계적인 석학을 배출하고자 1974년 설립한 비영리 공익법인입니다. 배출된 학자들은 Harvard, Yale, Stanford, MIT 등 세계 유수 대학원에서 학위를 받고 학계·법조계·언론계·국제기구에서 활동하고 있습니다.</p>
+        <div class="dl-stats" style="display:flex; gap:36px; margin-top:8px; padding-top:26px; border-top:1px solid #DFDACD">
+          <div style="display:flex; flex-direction:column; gap:5px">
+            <span class="dl-stat-num" style="font-size:28px; font-weight:800; letter-spacing:-.03em; color:#152452">1,016명</span>
+            <span style="font-size:13px; color:#7A7466; font-weight:600">박사학위자 배출</span>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:5px">
+            <span class="dl-stat-num" style="font-size:28px; font-weight:800; letter-spacing:-.03em; color:#152452">50+년</span>
+            <span style="font-size:13px; color:#7A7466; font-weight:600">장학사업</span>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:5px">
+            <span class="dl-stat-num" style="font-size:28px; font-weight:800; letter-spacing:-.03em; color:#152452">1974년</span>
+            <span style="font-size:13px; color:#7A7466; font-weight:600">설립</span>
+          </div>
+        </div>
+        <a href="https://www.kfas.or.kr/" target="_blank" rel="noopener" style="margin-top:6px; align-self:flex-start; font-size:14px; font-weight:700; border-bottom:2px solid #FFD400; padding-bottom:3px">재단 홈페이지 바로가기 →</a>
+      </div>
+      <div class="dl-about-img" style="position:relative; height:520px">
+        <div class="dl-about-img-a" style="position:absolute; inset:0 60px 80px 0; border-radius:3px; overflow:hidden; box-shadow:0 30px 60px -30px rgba(21,36,82,.5)">
+          <img src="assets-min/inv3/group-02.jpg" alt="드림렉쳐 초청특강 단체 사진" style="width:100%; height:100%; object-fit:cover">
+        </div>
+        <div class="dl-about-img-b" style="position:absolute; right:0; bottom:0; width:280px; height:200px; border-radius:3px; overflow:hidden; border:8px solid #F4F2EC; box-shadow:0 20px 40px -20px rgba(21,36,82,.4)">
+          <img src="assets-min/img-03.jpg" alt="강연 후 단체 사진" style="width:100%; height:100%; object-fit:cover">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dl-sec-num" style="background:#F4F2EC; padding:112px 0 0">
+    <div id="dl-counters" class="dl-wrap dl-num-head" style="max-width:1400px; margin:0 auto; padding:0 40px; display:flex; flex-direction:column; gap:44px">
+      <div style="display:flex; flex-direction:column; gap:14px">
+        <span style="font-size:12px; font-weight:800; letter-spacing:.2em; color:#D9A400">BY THE NUMBERS</span>
+        <h2 class="dl-h2-46" style="margin:0; font-size:46px; line-height:1.18; letter-spacing:-.045em; font-weight:800">지금까지 쌓인 만남</h2>
+      </div>
+      <div class="dl-num-grid" style="display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1px; background:#DFDACD; border-top:1px solid #DFDACD; border-bottom:1px solid #DFDACD">
+        <sc-for list="{{ counters }}" as="c" hint-placeholder-count="4">
+          <div class="dl-num-cell" style="background:#F4F2EC; padding:36px 28px 34px; display:flex; flex-direction:column; gap:12px">
+            <span style="font-size:12px; font-weight:800; letter-spacing:.2em; color:#9A9384">{{ c.since }}</span>
+            <span style="font-size:16px; font-weight:800; letter-spacing:-.03em; color:#152452">{{ c.label }}</span>
+            <span style="display:flex; align-items:baseline; gap:6px; margin-top:6px">
+              <span class="dl-num-big" style="font-size:64px; font-weight:800; letter-spacing:-.05em; line-height:.9; color:#152452; font-variant-numeric:tabular-nums">{{ c.shown }}</span>
+              <span style="font-size:17px; font-weight:700; color:#7A7466">{{ c.unit }}</span>
+            </span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <div class="dl-sec-strip" style="background:#F4F2EC; padding:110px 0 0; display:flex; flex-direction:column; gap:30px">
+    <div class="dl-wrap" style="max-width:1400px; margin:0 auto; padding:0 40px; width:100%; box-sizing:border-box; display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap">
+      <div style="display:flex; flex-direction:column; gap:12px">
+        <span style="font-size:12px; font-weight:800; letter-spacing:.2em; color:#D9A400">ON THE GROUND</span>
+        <h2 class="dl-h2-34" style="margin:0; font-size:34px; font-weight:800; letter-spacing:-.04em">전국 어디든 찾아갑니다</h2>
+      </div>
+    </div>
+    <div style="overflow:hidden; padding:4px 0">
+      <div style="display:flex; gap:12px; width:max-content; animation:drift 95s linear infinite" style-hover="animation-play-state:paused">
+        <sc-for list="{{ strip }}" as="s" hint-placeholder-count="12">
+          <img class="dl-strip-img" src="{{ s.src }}" alt="드림렉쳐 현장" style="width:288px; height:200px; flex:none; border-radius:12px; object-fit:cover">
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <dc-import data-no-reveal="1" name="Chatbot" accent="{{ accent }}" hint-size="0px,0px"></dc-import>
+
+  <div class="dl-foot" style="background:#0E1936; color:rgba(255,255,255,.55); padding:52px 0; margin-top:96px">
+    <div class="dl-wrap" style="max-width:1400px; margin:0 auto; padding:0 40px; display:flex; justify-content:space-between; align-items:flex-start; gap:40px; flex-wrap:wrap">
+      <div style="display:flex; flex-direction:column; gap:16px">
+        <a href="https://www.kfas.or.kr/" target="_blank" rel="noopener" style="align-self:flex-start; opacity:.85" style-hover="opacity:1">
+          <img class="dl-foot-logo" src="assets-min/img-05.png" alt="한국고등교육재단 홈페이지" style="width:232px; height:100px; object-fit:contain; object-position:left center; filter:brightness(0) invert(1); display:block">
+        </a>
+        <p style="margin:0; font-size:13.5px; line-height:1.9">서울특별시 강남구 테헤란로 211 (우 06141)<br>전화 02-6310-7876 · <a href="mailto:dreamlecture@kfas.or.kr" style="color:rgba(255,255,255,.75)">dreamlecture@kfas.or.kr</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const P = [
+  { num: "01", title: "방문특강", slogan: "“너만의 꿈을 키워라!”", meta: "석학이 학교로 찾아갑니다",
+    desc: "재단 장학생 출신 석학이 전국의 고등학교를 직접 찾아가 자신의 학문과 삶을 이야기합니다.",
+    img: "assets-min/img-06.jpg", hero: "assets-min/img-19.jpg", href: "#visit", accent: "#FFD400" },
+  { num: "02", title: "초청특강", slogan: "“더 넓은 세상으로!”", meta: "재단으로 초청합니다",
+    desc: "학생들을 재단으로 초청해 여러 분야의 강연과 대담을 하루에 걸쳐 이어갑니다. 2013년 1회부터 71회까지 이어졌습니다.",
+    img: "assets-min/inv2/group-02.jpg", hero: "assets-min/inv2/snap-01.jpg", href: "#invite", accent: "#F06AA6" },
+  { num: "03", title: "거점특강", slogan: "“꿈의 무대를 넓혀라!”", meta: "지역에서 한 학기를 함께합니다",
+    desc: "지역 거점센터를 중심으로 강연과 현장 방문, 멘토링을 한 학기 동안 수회에 걸쳐 진행합니다.",
+    img: "assets-min/busan/lab-02.jpg", hero: "assets-min/yeosu/lecture-01.jpg", href: "#hub", accent: "#4FB79A" },
+  { num: "04", title: "커넥트", slogan: "“화면 너머, 더 가까이!”", meta: "온라인으로 잇습니다",
+    desc: "재단 장학생이 자신의 전공과 진로 선택 과정을 들려주는 온라인 세미나입니다.",
+    img: "assets-min/img-14.jpg", hero: "assets-min/sejong/b07.jpg", href: "#connect", accent: "#7AA7EB" }
+];
+
+const LINES = [
+  "내가 받은 기회를, 누군가의 새로운 기회로 이어갑니다.",
+  "한 사람의 성장이, 더 많은 사람의 가능성을 키웁니다.",
+  "배움으로 얻은 것을, 더 넓은 세상과 함께 나눕니다."
+];
+
+const SHOTS = ["assets-min/inv2/snap-02.jpg","assets-min/img-19.jpg","assets-min/busan/lab-01.jpg","assets-min/img-13.jpg","assets-min/inv2/snap-01.jpg","assets-min/yeosu/lecture-01.jpg","assets-min/img-16.jpg","assets-min/inv2/snap-03.jpg","assets-min/sejong/b07.jpg","assets-min/img-09.jpg","assets-min/inv2/snap-05.jpg","assets-min/busan/postech-02.jpg","assets-min/img-17.jpg","assets-min/inv2/group-04.jpg","assets-min/sejong/a00.jpg","assets-min/img-07.jpg","assets-min/inv2/snap-08.jpg","assets-min/yeosu/banner-02.jpg","assets-min/img-20.jpg","assets-min/busan/lab-03.jpg"];
+
+const COUNTERS = [
+  { since: "SINCE 2012", label: "방문특강", target: 1233, unit: "회" },
+  { since: "SINCE 2013", label: "초청특강", target: 71, unit: "회" },
+  { since: "SINCE 2025", label: "거점특강", target: 5, unit: "회" },
+  { since: "SINCE 2026", label: "드림렉쳐 커넥트", target: 6, unit: "회" }
+];
+
+class Component extends DCLogic {
+  state = { active: 0, line: 0, hover: -1, countProgress: 0 };
+
+  componentDidMount() {
+    setTimeout(() => import("./reveal.js").then((m) => m.initReveal()).catch(() => {}), 120);
+    this.lineTimer = setInterval(() => this.setState((s) => ({ line: (s.line + 1) % LINES.length })), 4200);
+    this.watchCounters();
+  }
+
+  watchCounters() {
+    const el = document.getElementById("dl-counters");
+    if (!el) { this._retry = setTimeout(() => this.watchCounters(), 300); return; }
+    this._obs = new IntersectionObserver((entries) => {
+      if (entries.some((e) => e.isIntersecting)) { this._obs.disconnect(); this.runCount(); }
+    }, { threshold: 0.25 });
+    this._obs.observe(el);
+    this._fallback = setTimeout(() => { if (this.state.countProgress === 0) this.runCount(); }, 2500);
+  }
+
+  runCount() {
+    const DUR = 1800, t0 = performance.now();
+    const step = (t) => {
+      const p = Math.min(1, (t - t0) / DUR);
+      this.setState({ countProgress: 1 - Math.pow(1 - p, 3) });
+      if (p < 1) this._raf = requestAnimationFrame(step);
+    };
+    this._raf = requestAnimationFrame(step);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.lineTimer);
+    clearTimeout(this._retry);
+    clearTimeout(this._fallback);
+    cancelAnimationFrame(this._raf);
+    if (this._obs) this._obs.disconnect();
+  }
+
+  renderVals() {
+    const act = this.state.active;
+    const hov = this.state.hover;
+    const accent = P[act].accent;
+
+    return {
+      counters: COUNTERS.map((c, n) => ({
+        key: n, since: c.since, label: c.label, unit: c.unit,
+        shown: Math.round(c.target * this.state.countProgress).toLocaleString("ko-KR")
+      })),
+
+      heroAccentStyle: "color:" + accent + "; transition:color .5s ease",
+
+      heroLayers: P.map((p, n) => ({
+        key: n,
+        src: p.hero,
+        style: "position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:opacity 1.1s ease; opacity:" +
+          (n === act ? ".52" : "0") + "; animation:slowZoom 30s ease-out both"
+      })),
+
+      payStyle: "font-size:17px; font-weight:800; letter-spacing:.2em; transition:color .4s ease; color:" + accent,
+
+      tick: {
+        key: this.state.line,
+        text: LINES[this.state.line],
+        style: "font-size:18.5px; font-weight:600; line-height:1.6; letter-spacing:-.02em; color:rgba(255,255,255,.85); max-width:640px; text-wrap:pretty; animation:lineIn .6s cubic-bezier(.2,.7,.3,1) both"
+      },
+
+      heroIndex: P.map((p, n) => ({
+        key: n,
+        num: p.num, title: p.title, meta: p.meta, slogan: p.slogan, href: p.href,
+        enter: () => { this.setState({ active: n }); try { window.dispatchEvent(new CustomEvent("dl-accent", { detail: p.accent })); } catch (e) {} },
+        rowStyle: "display:grid; grid-template-columns:44px minmax(0,1fr) 22px; align-items:center; gap:18px; padding:20px 4px; border-bottom:1px solid rgba(255,255,255,.16); transition:padding-left .35s ease, background .35s ease; padding-left:" +
+          (n === act ? "16px" : "4px") + "; background:" + (n === act ? "rgba(255,255,255,.05)" : "transparent"),
+        numStyle: "font-size:12.5px; font-weight:800; letter-spacing:.1em; font-variant-numeric:tabular-nums; transition:color .35s ease; color:" +
+          (n === act ? p.accent : "rgba(255,255,255,.4)"),
+        titleStyle: "font-size:22px; font-weight:800; letter-spacing:-.035em; transition:color .35s ease; color:" +
+          (n === act ? "#fff" : "rgba(255,255,255,.8)"),
+        metaStyle: "font-size:13px; font-weight:600; color:rgba(255,255,255,.5)",
+        arrowStyle: "font-size:15px; text-align:right; transition:opacity .35s ease, color .35s ease; color:" +
+          (n === act ? p.accent : "rgba(255,255,255,.35)") + "; opacity:" + (n === act ? "1" : ".7")
+      })),
+
+      rows: P.map((p, n) => {
+        const on = hov === n;
+        return {
+          key: n,
+          num: p.num, title: p.title, slogan: p.slogan, desc: p.desc, img: p.img, href: p.href,
+          enter: () => { this.setState({ hover: n, active: n }); try { window.dispatchEvent(new CustomEvent("dl-accent", { detail: p.accent })); } catch (e) {} },
+          leave: () => this.setState({ hover: -1 }),
+          rowStyle: "display:grid; grid-template-columns:64px minmax(0,270px) minmax(0,1fr) 148px 44px; align-items:center; gap:32px; padding:34px 12px; border-top:1px solid " +
+            (on ? p.accent : "#DFDACD") + "; transition:border-color .35s ease, background .35s ease, padding-left .35s ease; background:" +
+            (on ? "#fff" : "transparent") + "; padding-left:" + (on ? "24px" : "12px") +
+            (n === P.length - 1 ? "; border-bottom:1px solid " + (on ? p.accent : "#DFDACD") : ""),
+          numStyle: "font-size:13px; font-weight:800; letter-spacing:.1em; font-variant-numeric:tabular-nums; transition:color .35s ease; color:" +
+            (on ? p.accent : "#A8A296"),
+          titleStyle: "font-size:34px; font-weight:800; letter-spacing:-.04em; line-height:1.05; color:#152452",
+          sloganStyle: "font-size:14.5px; font-weight:700; letter-spacing:-.02em; transition:color .35s ease; color:" +
+            (on ? p.accent : "#7A7466"),
+          descStyle: "font-size:15px; line-height:1.75; color:#4A5169; text-wrap:pretty",
+          thumbWrapStyle: "display:block; width:148px; height:96px; border-radius:10px; overflow:hidden; background:#E7E3D8; transition:filter .35s ease, transform .35s ease; filter:grayscale(" +
+            (on ? "0" : "1") + "); transform:scale(" + (on ? "1.03" : "1") + ")",
+          arrowStyle: "width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:16px; transition:all .35s ease; border:1px solid " +
+            (on ? p.accent : "#D6D1C4") + "; background:" + (on ? p.accent : "transparent") + "; color:" + (on ? "#152452" : "#8A8578")
+        };
+      }),
+
+      strip: SHOTS.concat(SHOTS).map((src, n) => ({ key: n, src: src }))
+    };
+  }
+}
+
+</script>
+</body>
+</html>
